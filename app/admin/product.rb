@@ -13,5 +13,7 @@ ActiveAdmin.register Product do
   #  permitted << :other if resource.something?
   #  permitted
   # end
+
+  permit_params :name, :name_zh_cn, :description, :description_zh_cn, :category_id
   
 end
