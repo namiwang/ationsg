@@ -1,4 +1,4 @@
 class Product < ActiveRecord::Base
   # associations
-  has_one :category
+  belongs_to :category
 end
