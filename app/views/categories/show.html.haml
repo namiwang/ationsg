@@ -1,9 +1,5 @@
-.container.pages.home
-  .row
-    .col-md-12
-      .slide
-
+.container.categories.show
   .row.items
-    - Product.all.each do |p|
+    - @category.products.all.each do |p|
       .col-md-3.item
         = render partial: 'thumbnails/product', object: p
