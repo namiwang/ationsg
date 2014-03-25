@@ -6,5 +6,4 @@
   .row.items
     - Product.all.each do |p|
       .col-md-3.item
-        %a.thumbnail
-          %p= p.name
+        = link_to p.name, main_app.product_path(p), class: 'thumbnail'

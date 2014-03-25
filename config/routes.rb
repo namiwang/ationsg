@@ -1,4 +1,5 @@
 Ationsg::Application.routes.draw do
+  get "products/show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -60,6 +61,9 @@ Ationsg::Application.routes.draw do
 
   # devise
   devise_for :users
+
+  # products
+  resources :products, only: [:show]
 
   # static pages & root
   get 'pages/home' => 'high_voltage/pages#show', id: 'home'
