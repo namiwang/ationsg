@@ -65,6 +65,9 @@ Ationsg::Application.routes.draw do
   # products
   resources :products, only: [:show]
 
+  # categories
+  resources :categories, only: [:show]
+
   # static pages & root
   get 'pages/home' => 'high_voltage/pages#show', id: 'home'
   root 'high_voltage/pages#show', id: 'home'
