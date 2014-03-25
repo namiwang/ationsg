@@ -49,3 +49,7 @@ gem 'bootstrap-sass'
 gem 'high_voltage'
 
 gem 'devise'
+
+gem 'haml'
+
+gem 'jquery-turbolinks'

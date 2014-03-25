@@ -1,0 +1,10 @@
+.container.pages.home
+  .row
+    .col-md-12
+      .slide
+
+  .row.items
+    - Product.all.each do |p|
+      .col-md-3.item
+        %a.thumbnail
+          %p =p.name

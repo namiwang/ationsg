@@ -46,6 +46,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    haml (3.1.7)
     high_voltage (2.1.0)
     hike (1.2.3)
     i18n (0.6.9)
@@ -55,6 +56,9 @@ GEM
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-turbolinks (2.0.2)
+      railties (>= 3.1.0)
+      turbolinks
     json (1.8.1)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -125,9 +129,11 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise
+  haml
   high_voltage
   jbuilder (~> 1.2)
   jquery-rails
+  jquery-turbolinks
   rails (= 4.0.3)
   sass-rails (~> 4.0.0)
   sdoc
