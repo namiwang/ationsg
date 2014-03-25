@@ -1,5 +1,4 @@
 Ationsg::Application.routes.draw do
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -54,6 +53,13 @@ Ationsg::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  # admin
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  # devise
+  devise_for :users
 
   # static pages & root
   get 'pages/home' => 'high_voltage/pages#show', id: 'home'

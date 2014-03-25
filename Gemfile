@@ -53,3 +53,5 @@ gem 'devise'
 gem 'haml'
 
 gem 'jquery-turbolinks'
+
+gem 'activeadmin', github: 'gregbell/active_admin'
