@@ -1,3 +1,8 @@
 %footer.main
-  %hr
-    %p Copyright Ation.sg 2014
+  .container
+    %hr
+      %p.pull-left Copyright Ation.sg 2014
+      %ul.list-inline.pull-right
+        -['about_us', 'contact_us'].each do |p|
+          %li
+            =link_to t("pages.#{p}"), page_path(p)

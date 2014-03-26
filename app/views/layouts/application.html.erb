@@ -28,5 +28,9 @@
 
     <%= render 'shared/footer' %>
 
+    <% if controller_name.in? ['products'] %>
+      <%= javascript_include_tag controller_name, "data-turbolinks-track" => true %>
+    <% end %>
+
   </body>
 </html>
