@@ -14,6 +14,6 @@ ActiveAdmin.register Category do
   #  permitted
   # end
 
-  permit_params :name, :name_zh_cn
+  permit_params :name
   
 end
