@@ -60,7 +60,12 @@ Ationsg::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   # devise
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "authentications" }
+
+  devise_scope :user do
+    get 'users/oauth_bind' => 'oauth_bind#new_from_oauth', as: :oauth_bind_new
+    post 'users/oauth_bind' => 'oauth_bind#bind_with_oauth'
+  end
 
   # products
   resources :products, only: [:show]

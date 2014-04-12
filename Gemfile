@@ -49,6 +49,8 @@ gem 'bootstrap-sass'
 gem 'high_voltage'
 
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-gplus'
 
 gem 'haml'
 
@@ -57,3 +59,9 @@ gem 'jquery-turbolinks'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'rails-i18n'
+
+gem 'figaro'
+
+group :development do
+  gem 'pry'
+end
