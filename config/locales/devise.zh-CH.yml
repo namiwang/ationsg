@@ -1,0 +1,27 @@
+#encoding: utf-8
+zh-CN:
+  devise:
+    registrations:
+      new_from_oauth:
+        name_via_oauth: 您在第三方网站上的账户
+        youre_sign_in_with_provider:  您正在通过第三方网站 %{provider} 登录
+        sign_in_and_bind: 登录并绑定
+        sign_up_and_bind: 注册并绑定
+
+    authentications:
+      views:
+        sign_in_use_oauth: 使用第三方账户登录
+      providers:
+        gplus: Google+
+        gplus_with_icon: <a class="btn btn-xs btn-social btn-google-plus"><i class="fa fa-google-plus"></i> Google+</a>
+      user:
+        failure: 关联失败
+
+    navigation:
+      sign_in: '登录'
+      sign_up: '注册'
+      sign_out: '注销'
+      sign_in_or_up: 注册／登录
+      sign_in_or_up_with_provider: 使用%{provider}账户登录
+      change_password: '修改密码'
+      change_registration: '修改登记'

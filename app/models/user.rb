@@ -4,4 +4,16 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:gplus]
+
+  # associations
+  has_many :authentications, dependent: :destroy
+
+  def apply_authentication(oauth_info)
+   authentications.build(
+     provider: oauth_info['provider'],
+     uid: oauth_info['uid']
+   )
+   self.save!
+  end
+
 end

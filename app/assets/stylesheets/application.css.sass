@@ -9,13 +9,17 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap
+ *= require font-awesome
  *= require smoothproducts
  */
 
+@import "bootstrap"
+@import "bootstrap-social"
 
 body
   padding-top: 70px
+
+div.container.flash
 
 // pages-home
 div.container.pages.home
@@ -28,3 +32,8 @@ div.container.pages.home
 // thumbnail-product
 .thumbnail-product
   margin-bottom: 1em
+
+// devise
+div.new-from-oauth
+  header p a.btn-social-icon
+    cursor: default

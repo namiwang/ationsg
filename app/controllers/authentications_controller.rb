@@ -6,7 +6,6 @@ class AuthenticationsController < Devise::OmniauthCallbacksController
   private
 
   def authorize(provider)
-    binding.pry
     session[:oauth] = env['omniauth.auth']
     if @user = Authentication.find_user(provider, env['omniauth.auth']['uid'])
       # TODO make flash work in layout

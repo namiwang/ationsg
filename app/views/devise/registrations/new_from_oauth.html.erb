@@ -1,0 +1,40 @@
+<div class='new-from-oauth'>
+  <header class="page-header">
+    <p>
+      <%= t('.youre_sign_in_with_provider', provider: t("devise.authentications.providers.#{session[:oauth].provider}_with_icon").html_safe).html_safe %>
+    </p>
+  </header>
+
+  <%= form_for(resource, :as => resource_name, :url => oauth_bind_new_path, html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+    <%= render "devise/shared/error_messages" %>
+
+    <% case session[:oauth].provider %>
+    <% when 'google_oauth2' %>
+      <% oauth_got_email = session[:oauth].info.email %>
+      <% oauth_got_name = session[:oauth].info.name %>
+    <% end %>
+
+    <!-- Email -->
+    <div class="form-group">
+      <%= f.label :email, class: "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.email_field :email, :autofocus => true, value: oauth_got_email, class: 'form-control' %>
+      </div>
+    </div>
+
+    <!-- Name -->
+    <div class="form-group">
+      <%= f.label :name, class: "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.text_field :name, value: oauth_got_name, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
+        <button type="submit" class="btn btn-default"><%= t 'common.submit' %></button>
+      </div>
+    </div>
+
+  <% end %>
+</div>
