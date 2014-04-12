@@ -9,7 +9,7 @@
     <%= render "devise/shared/error_messages" %>
 
     <% case session[:oauth].provider %>
-    <% when 'google_oauth2' %>
+    <% when 'gplus' %>
       <% oauth_got_email = session[:oauth].info.email %>
       <% oauth_got_name = session[:oauth].info.name %>
     <% end %>
