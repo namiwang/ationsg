@@ -16,8 +16,26 @@
 @import "bootstrap"
 @import "bootstrap-social"
 
-body
-  padding-top: 70px
+div.container.header
+  div.logo
+    margin: 1em auto
+    img
+      display: block
+      margin: auto
+
+  div.to-stick
+    z-index: 1
+
+    a.navbar-brand
+      display: none
+
+  div.is-stuck
+    width: 100%
+    left: 0
+
+    a.navbar-brand
+      display: block
+
 
 div.container.flash
   a.btn-social
