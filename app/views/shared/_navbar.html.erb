@@ -1,7 +1,9 @@
 <div class="container header">
 
   <div class="logo">
-    <%= image_tag('http://placehold.it/400x100', size: '400x100') %>
+    <%= link_to main_app.root_path do %>
+      <%= image_tag('http://placehold.it/400x100', size: '400x100') %>
+    <% end %>
   </div>
 
   <div class="to-stick">

@@ -1,9 +1,11 @@
 .container.products.show
-  = @product.name
-  .sp-wrap
-    %a{href: 'http://placehold.it/200x200'}
-      =image_tag('http://placehold.it/200x200', size: '200x200')
-    %a{href: 'http://placehold.it/200x200'}
-      =image_tag('http://placehold.it/200x200', size: '200x200')
-    %a{href: 'http://placehold.it/200x200'}
-      =image_tag('http://placehold.it/200x200', size: '200x200')
+  .row
+    .col-md-2.slide-imgs
+      .slide-img
+        placeholder
+
+    .col-md-7
+      = @product.name
+
+    .col-md-3
+      = link_to 'cart', 'cart', class: 'btn btn-primary btn-block'
