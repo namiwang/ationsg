@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 20140412060135) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
-    t.string   "name_zh_cn"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,7 +64,6 @@ ActiveRecord::Schema.define(version: 20140412060135) do
   create_table "products", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.text     "description_zh_cn"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
