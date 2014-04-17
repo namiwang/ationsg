@@ -49,9 +49,23 @@ div.container.pages.home
       height: 240px
     margin-bottom: 1em
 
+// thumbnail-common
+.container
+  .thumbnail-common
+    margin-bottom: 1em
+
+.thumbnail-common
+  height: 360px
+  border: none
+  border-radius: 0
+  +box-shadow(0px 0px 5px silver)
+  &:hover
+    border: none
+    text-decoration: none
+    +box-shadow(0px 0px 5px grey)
+
 // thumbnail-product
-.thumbnail-product
-  margin-bottom: 1em
+// category-category
 
 // devise
 div.new-from-oauth

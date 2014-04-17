@@ -1,2 +1,7 @@
-= link_to(main_app.product_path(product), class: 'thumbnail thumbnail-product') do
+= link_to(main_app.product_path(product), class: 'thumbnail thumbnail-common thumbnail-product') do
   = image_tag('http://placehold.it/200x200', size: '600x600')
+  .caption
+    %h4
+      product.name
+    %p
+      product.name
