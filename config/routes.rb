@@ -73,6 +73,10 @@ Ationsg::Application.routes.draw do
   # categories
   resources :categories, only: [:show]
 
+  # cart
+  get 'cart' => 'cart#show', as: :cart_show
+  get 'cart/partial' => 'cart#partial', as: :cart_partial
+
   # static pages & root
   get 'pages/home' => 'high_voltage/pages#show', id: 'home'
   root 'high_voltage/pages#show', id: 'home'

@@ -1,4 +1,4 @@
 %li
-  =link_to 'a' do
-    %span.glyphicon.glyphicon-shopping-cart
-    (0)
+  / this delay object in data doesn't work
+  %a.need-popover-init.cart-btn{href: main_app.cart_show_path, data: {toggle: 'popover', trigger: 'hover', placement: 'bottom', html: 'true', delay: "{show: 0, hide: 500}" }}
+    %span.glyphicon.glyphicon-shopping-cart (0)

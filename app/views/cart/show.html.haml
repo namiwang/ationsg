@@ -1,0 +1,16 @@
+.container.cart.show
+  .row
+    .col-md-9
+      %ul.media-list
+        - @cart_items.each do |i|
+          %li.media
+            .pull-left
+              = image_tag('http://placehold.it/64x64', size: '64x64', class: 'media-object')
+            .media-body
+              %h4.media-heading
+                = i
+              %p ...
+
+    .col-md-3
+      = link_to t('cart.show.checkout'), 'TODO', class: 'btn btn-primary btn-block'
+

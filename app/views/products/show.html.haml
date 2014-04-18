@@ -4,8 +4,9 @@
       .slide-img
         placeholder
 
-    .col-md-7
+    .col-md-6
       = @product.name
 
-    .col-md-3
-      = link_to 'cart', 'cart', class: 'btn btn-primary btn-block'
+    .col-md-4
+      %a.btn.btn-primary.btn-block.add-to-cart{data: {product_id: @product.id}}
+        = t 'products.show.add_to_cart'
