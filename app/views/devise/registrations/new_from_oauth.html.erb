@@ -1,4 +1,4 @@
-<div class='new-from-oauth'>
+<div class="container new-from-oauth">
   <header class="page-header">
     <p>
       <%= t('.youre_sign_in_with_provider', provider: t("devise.authentications.providers.#{session[:oauth].provider}_with_icon").html_safe).html_safe %>
@@ -18,8 +18,8 @@
     <div class="form-group">
       <%= f.label :email, class: "col-lg-2 control-label" %>
       <div class="col-lg-10">
-        <%= f.email_field :email, readonly: true, value: oauth_got_email, class: 'form-control' %>
-        <!-- TODO, now email field is readonly if from oauth, but just readonly in view is not enough -->
+        <%= f.email_field :email, disabled: true, value: oauth_got_email, class: 'form-control' %>
+        <!-- TODO, now email field is disabled if from oauth, but just readonly in view is not enough -->
       </div>
     </div>
 

@@ -1,50 +1,50 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal', role: 'form'}) do |f| %>
 
-  <%= render "devise/shared/error_messages" %>
+    <%= render "devise/shared/error_messages" %>
 
-  <div class="form-group">
-    <%= f.label :email, class: 'col-sm-3 control-label' %>
-    <div class="col-sm-9">
-      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password, class: 'col-sm-3 control-label' %>
-    <div class="col-sm-9">
-      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-    </div>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
     <div class="form-group">
-      <div class="col-sm-offset-3 col-sm-9">
-        <div class="checkbox">
-          <label>
-            <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-          </label>
-        </div>
+      <%= f.label :email, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
       </div>
     </div>
-  <% end -%>
 
-  <div class="form-group">
-    <div class="col-sm-offset-3 col-sm-9">
-      <%= f.submit "Sign in", class: 'btn btn-default' %>
+    <div class="form-group">
+      <%= f.label :password, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <div class="col-sm-offset-3 col-sm-9">
-      <%= render "devise/shared/links" %>
+    <% if devise_mapping.rememberable? -%>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <div class="checkbox">
+            <label>
+              <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+            </label>
+          </div>
+        </div>
+      </div>
+    <% end -%>
+
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= f.submit "Sign in", class: 'btn btn-default' %>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <div class="col-sm-offset-3 col-sm-9">
-      <%= render "devise/shared/social_login" %>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
-  </div>
 
-<% end %>
-
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= render "devise/shared/social_login" %>
+      </div>
+    </div>
+  <% end %>
+</div>

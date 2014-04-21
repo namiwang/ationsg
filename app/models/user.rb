@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   # associations
   has_many :authentications, dependent: :destroy
+  has_many :orders
 
   def apply_authentication(oauth_info)
    authentications.build(

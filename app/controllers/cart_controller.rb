@@ -6,12 +6,6 @@ class CartController < ApplicationController
   end
 
   def partial
-    render partial: 'partial', locals: { items: @cart_items }, layout: false
-  end
-
-  private
-
-  def get_cart_items
-    @cart_items = JSON.parse cookies[:cart_items]
+    render partial: 'partial', locals: { items: @cart[:items] }, layout: false
   end
 end

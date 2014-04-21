@@ -1,5 +1,4 @@
 Ationsg::Application.routes.draw do
-  get "products/show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -60,12 +59,19 @@ Ationsg::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   # devise
-  devise_for :users, :controllers => { :omniauth_callbacks => "authentications" }
-
+  devise_for :users, controllers: { omniauth_callbacks: 'authentications' }, skip: [:registrations]
   devise_scope :user do
+    # oauth
     get 'users/oauth_bind' => 'oauth_bind#new_from_oauth', as: :oauth_bind_new
     post 'users/oauth_bind' => 'oauth_bind#bind_with_oauth'
+
+    # registration
+    get 'users/sign_up' => 'devise/registrations#new', as: :new_user_registration
+    post 'users' => 'devise/registrations#create', as: :user_registration
   end
+
+  # my
+  get 'my/profile' => 'my#profile', as: :my_profile
 
   # products
   resources :products, only: [:show]
@@ -74,8 +80,14 @@ Ationsg::Application.routes.draw do
   resources :categories, only: [:show]
 
   # cart
-  get 'cart' => 'cart#show', as: :cart_show
+  get 'cart' => 'cart#show', as: :cart
   get 'cart/partial' => 'cart#partial', as: :cart_partial
+
+  # orders
+  resources :orders, only: [:new, :create, :show, :index] do
+    get 'pay' => 'orders#pay', as: :pay
+  end
+
 
   # static pages & root
   get 'pages/home' => 'high_voltage/pages#show', id: 'home'

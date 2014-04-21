@@ -10,6 +10,7 @@
  *
  *= require font-awesome
  *= require products
+ *= require orders
  *= require_self
  */
 
@@ -17,21 +18,24 @@
 @import "bootstrap-social"
 
 div.container.header
-  div.logo
-    margin: 1em auto
-    img
-      display: block
-      margin: auto
+  div.logo img
+    +center-block
 
   nav.navbar
     ul.cart
       a.cart-btn
         cursor: pointer
 
-      #cart-partial
-        width: 200px
-        max-height: 500px
-        overflow: scroll
+      .cart-wrapper
+        width: 250px
+        padding: 1em
+        .cart-partial
+          overflow-x: hidden
+          overflow-y: scroll
+          max-height: 300px
+
+        footer
+
         
   div.to-stick
     z-index: 1
@@ -45,7 +49,6 @@ div.container.header
 
     a.navbar-brand
       display: block
-
 
 div.container.flash
   a.btn-social

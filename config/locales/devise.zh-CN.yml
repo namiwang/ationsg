@@ -14,14 +14,10 @@ zh-CN:
       providers:
         gplus: Google+
         gplus_with_icon: <a class="btn btn-xs btn-social btn-google-plus"><i class="fa fa-google-plus"></i> Google+</a>
-      user:
-        failure: 关联失败
 
     navigation:
       sign_in: '登录'
       sign_up: '注册'
       sign_out: '注销'
-      sign_in_or_up: 注册／登录
-      sign_in_or_up_with_provider: 使用%{provider}账户登录
-      change_password: '修改密码'
-      change_registration: '修改登记'
+      sign_in_with_provider: 使用%{provider}账户登录
+      not_signed_in: '您还没有登录'

@@ -3,7 +3,7 @@
     <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
   <% end -%>
  -->
-  <a class="btn btn-block btn-social btn-google-plus" href="<%= omniauth_authorize_path(resource_name, :gplus) %>">
-    <i class="fa fa-google-plus"></i> Sign in with Google+
+  <a class="btn btn-social btn-google-plus" href="<%= omniauth_authorize_path(resource_name, :gplus) %>">
+    <i class="fa fa-google-plus"></i> <%= t 'devise.navigation.sign_in_with_provider', provider: t('devise.authentications.providers.gplus') %>
   </a>
 <% end -%>
