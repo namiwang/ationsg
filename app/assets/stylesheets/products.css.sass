@@ -2,5 +2,52 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.container.products.show
-  
+.container.products.show .product-wrapper
+  width: 100%
+  border: 4px solid #47a3da
+
+  .big-img
+    width: 100%
+    img
+      width: 100%
+      height: auto
+
+  nav
+    width: 100%
+    border-top: 4px solid #47a3da
+
+    li
+      list-style: none
+      cursor: pointer
+
+  nav.imgs
+    height: 68px
+
+    li
+      width: 68px
+      float: left
+      border-right: 4px solid #47a3da
+
+  nav.btns
+    height: 52px
+
+    li
+      width: 52px
+      height: 100%
+      float: right
+      border-left: 4px solid #47a3da
+
+      a div
+        color: #47a3da
+        background: #fff
+        +transition(color 0.2s ease-in-out, background-color 0.2s ease-in-out)
+
+        span.glyphicon
+          line-height: 48px
+          font-size: 24px
+          width: 100%
+          text-align: center
+
+        &:hover
+          background-color: #47a3da
+          color: #fff

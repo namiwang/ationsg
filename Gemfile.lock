@@ -211,6 +211,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   bootstrap-sass
+  bourbon
   coffee-rails (~> 4.0.0)
   devise
   devise-i18n

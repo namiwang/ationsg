@@ -1,12 +1,23 @@
 .container.products.show
   .row
-    .col-md-2.slide-imgs
-      .slide-img
-        placeholder
+    .col-md-6
+      .product-wrapper
+        .big-img
+          %img{src: 'http://placehold.it/800x800'}
+        %nav.imgs
+          %li
+            %a
+              %img{src: 'http://placehold.it/64x64'}
+          %li
+            %a
+              %img{src: 'http://placehold.it/64x64'}
+        %nav.btns
+          %li
+            %a
+              %div
+                %span.glyphicon.glyphicon-shopping-cart
 
     .col-md-6
       = @product.name
-
-    .col-md-4
       %a.btn.btn-primary.btn-block.add-to-cart{data: {product_id: @product.id}}
         = t 'products.show.add_to_cart'
