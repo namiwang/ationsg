@@ -2,16 +2,8 @@
   .row
     .col-md-9
       %ul.media-list
-        - @cart[:items].each do |i|
-          %li.media
-            .pull-left
-              = image_tag('http://placehold.it/64x64', size: '64x64', class: 'media-object')
-            .media-body
-              %h4.media-heading
-                = i
-              %p ...
+        = render partial: 'cart/item', collection: @cart[:items]
 
     .col-md-3
       / TODO affix
       = link_to t('cart.show.checkout'), main_app.new_order_path, class: 'btn btn-primary btn-block'
-

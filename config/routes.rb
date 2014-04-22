@@ -70,9 +70,6 @@ Ationsg::Application.routes.draw do
     post 'users' => 'devise/registrations#create', as: :user_registration
   end
 
-  # my
-  get 'my/profile' => 'my#profile', as: :my_profile
-
   # products
   resources :products, only: [:show]
 
@@ -84,10 +81,16 @@ Ationsg::Application.routes.draw do
   get 'cart/partial' => 'cart#partial', as: :cart_partial
 
   # orders
-  resources :orders, only: [:new, :create, :show, :index] do
+  resources :orders, only: [:new, :create, :show] do
     get 'pay' => 'orders#pay', as: :pay
   end
 
+  # my
+  get 'my/info' => 'my#info', as: :my_info
+  # post profile
+  get 'my/orders' => 'my#orders', as: :my_orders
+  get 'my/addresses' => 'my#addresses', as: :my_addresses
+  get 'my/payments' => 'my#payments', as: :my_payments
 
   # static pages & root
   get 'pages/home' => 'high_voltage/pages#show', id: 'home'
