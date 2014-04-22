@@ -48,6 +48,10 @@ GEM
     arel (4.0.2)
     atomic (1.1.16)
     bcrypt (3.1.7)
+    bitters (0.9.3)
+      bourbon (>= 3.1)
+      sass (>= 3.2)
+      thor
     bootstrap-sass (3.1.1.0)
       sass (~> 3.2)
     bourbon (3.1.8)
@@ -117,6 +121,10 @@ GEM
     multi_json (1.9.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    neat (1.5.0)
+      bourbon (>= 2.1)
+      sass (>= 3.2)
+    normalize-rails (3.0.1)
     oauth2 (0.9.3)
       faraday (>= 0.8, < 0.10)
       jwt (~> 0.1.8)
@@ -210,6 +218,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  bitters
   bootstrap-sass
   bourbon
   coffee-rails (~> 4.0.0)
@@ -222,6 +231,8 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
+  neat
+  normalize-rails
   omniauth
   omniauth-gplus
   pry

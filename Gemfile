@@ -44,7 +44,11 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'normalize-rails'
+
 gem 'bourbon'
+gem 'neat'
+gem 'bitters'
 
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'

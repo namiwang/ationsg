@@ -9,14 +9,18 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require font-awesome
+ *= require normalize-rails
  *= require_self
  */
+
+@import "bourbon"
+@import "bitters/bitters"
+@import "neat"
 
 @import "bootstrap"
 @import "bootstrap-social"
 
-@import "bourbon"
-
+@import "footer"
 @import "products"
 @import "orders"
 

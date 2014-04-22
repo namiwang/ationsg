@@ -1,8 +1,18 @@
 %footer.main
-  .container
-    %hr
-      %p.pull-left Copyright Ation.sg 2014
-      %ul.list-inline.pull-right
-        -['about_us', 'contact_us'].each do |p|
-          %li
-            =link_to t("pages.#{p}"), page_path(p)
+  .logo
+    %img{src: 'http://placehold.it/64x64'}
+  .links
+    %ul
+      -['about_us', 'contact_us'].each do |p|
+        %li
+          =link_to t("pages.#{p}"), page_path(p)
+    %ul
+      %li= link_to 'a', 'a'
+      %li= link_to 'a', 'a'
+      %li= link_to 'a', 'a'
+    %ul
+      %li= link_to 'a', 'a'
+      %li= link_to 'a', 'a'
+      %li= link_to 'a', 'a'
+  %hr
+    %p Copyright Ation.sg 2014
