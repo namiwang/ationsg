@@ -3,11 +3,17 @@
     %img{src: 'http://placehold.it/64x64'}
   .links
     %ul
+      %li
+        %h3 Content
       -['about_us', 'contact_us'].each do |p|
         %li
           =link_to t("pages.#{p}"), page_path(p)
     %ul
-      %li= link_to 'a', 'a'
+      %li
+        %h3 TODO t follow us
+      %li
+        = link_to 'TODO' do
+          %i.fa.fa-twitter Twitter
       %li= link_to 'a', 'a'
       %li= link_to 'a', 'a'
     %ul
@@ -15,4 +21,5 @@
       %li= link_to 'a', 'a'
       %li= link_to 'a', 'a'
   %hr
+    %p Disclaimer area lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nostrum repudiandae saepe.
     %p Copyright Ation.sg 2014

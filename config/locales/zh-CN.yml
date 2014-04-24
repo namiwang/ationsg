@@ -2,6 +2,7 @@
 zh-CN:
   common:
     submit: 提交
+    save: 保存
 
   nav:
     my_orders: 我的订单
@@ -12,6 +13,10 @@ zh-CN:
   products:
     show:
       add_to_cart: 加入购物车
+
+  categories:
+    card: 
+      see_all: 该类所有商品
 
   cart:
     show:

@@ -18,8 +18,7 @@
     <div class="form-group">
       <%= f.label :email, class: "col-lg-2 control-label" %>
       <div class="col-lg-10">
-        <%= f.email_field :email, disabled: true, value: oauth_got_email, class: 'form-control' %>
-        <!-- TODO, now email field is disabled if from oauth, but just readonly in view is not enough -->
+        <%= f.email_field :email, autofocus: true, value: oauth_got_email, class: 'form-control' %>
       </div>
     </div>
 
@@ -27,7 +26,15 @@
     <div class="form-group">
       <%= f.label :name, class: "col-lg-2 control-label" %>
       <div class="col-lg-10">
-        <%= f.text_field :name, autofocus: true, value: oauth_got_name, class: 'form-control' %>
+        <%= f.text_field :name, value: oauth_got_name, class: 'form-control' %>
+      </div>
+    </div>
+
+    <!--  -->
+    <div class="form-group">
+      <%= f.label :phone, class: "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.text_field :phone, class: 'form-control' %>
       </div>
     </div>
 

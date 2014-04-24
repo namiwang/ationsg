@@ -9,7 +9,7 @@ class OauthBindController < Devise::RegistrationsController
   def bind_with_oauth
     # TODO rescue if this email already use, or save failed, etc
     u = build_resource user_params
-    u.password = Devise.friendly_token.first(8)
+    u.password = Devise.friendly_token.first(20)
     # TODO clear this random password thing
 
     if !u.valid?
@@ -17,11 +17,12 @@ class OauthBindController < Devise::RegistrationsController
         (flash[:alert] ||= []) << m
       end
       redirect_to main_app.oauth_bind_new_path
-      # TODO, append message to flash array, not replace
       return
     end
 
     u.save!
+    # TODO, rescue if save failed
+    
     u.apply_authentication session[:oauth]
     # TODO these may be can be clearer, but just failed, seems because of some strong parament things
 
@@ -38,6 +39,6 @@ class OauthBindController < Devise::RegistrationsController
   end
 
   def user_params
-    params.require(:user).permit(:email, :name)
+    params.require(:user).permit(:email, :name, :phone)
   end
 end

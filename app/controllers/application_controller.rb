@@ -17,4 +17,6 @@ class ApplicationController < ActionController::Base
       # TODO @cart[:total_price] = 0
     end
   end
+
+  # TODO, validate cart, say no negative item amount
 end

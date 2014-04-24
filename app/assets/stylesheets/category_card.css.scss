@@ -1,0 +1,41 @@
+.category-card {
+  $category-card-icon-size: 3.5em;
+
+  max-height: 300px;
+  overflow: hidden;
+  padding: 15%;
+
+  .icon {
+    float: left;
+    background: $base-accent-color;
+    padding: $category-card-icon-size /4;
+    border-radius: 50%;
+    width: $category-card-icon-size;
+    height: $category-card-icon-size;
+  }
+
+  // TODO, auto generate these colors
+  .icon-1 {
+    background: $base-accent-color;
+  }
+
+  .icon-2 {
+    background: adjust-hue($base-accent-color, -50);
+  }
+
+  .icon-3 {
+    background: adjust-hue($base-accent-color, -140);
+  }
+
+  .content {
+    margin-left: $category-card-icon-size *1.4;
+  }
+
+  h2 {
+    font-size: $category-card-icon-size /2.5;
+    padding-top: $category-card-icon-size /7;
+    margin-bottom: $category-card-icon-size /6;
+    border-bottom: 1px solid transparentize($base-font-color, .8);
+    display: inline-block;
+  }
+}

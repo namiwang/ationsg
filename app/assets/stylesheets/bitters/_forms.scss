@@ -84,12 +84,12 @@ select {
   margin-bottom: $base-line-height;
 }
 
-button,
-input[type="submit"] {
-  @extend %button;
-  @include appearance(none);
-  cursor: pointer;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-}
+// button,
+// input[type="submit"] {
+//   @extend %button;
+//   @include appearance(none);
+//   cursor: pointer;
+//   user-select: none;
+//   vertical-align: middle;
+//   white-space: nowrap;
+// }

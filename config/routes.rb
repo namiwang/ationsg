@@ -86,8 +86,9 @@ Ationsg::Application.routes.draw do
   end
 
   # my
+  get 'my' => 'my#info'
   get 'my/info' => 'my#info', as: :my_info
-  # post profile
+  patch 'my/info' => 'my#info_update', as: :udpate_my_info
   get 'my/orders' => 'my#orders', as: :my_orders
   get 'my/addresses' => 'my#addresses', as: :my_addresses
   get 'my/payments' => 'my#payments', as: :my_payments

@@ -8,20 +8,26 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require font-awesome
  *= require normalize-rails
+ *= require font-awesome
  *= require_self
  */
+
+@import "bootstrap"
+@import "bootstrap-social"
 
 @import "bourbon"
 @import "bitters/bitters"
 @import "neat"
 
-@import "bootstrap"
-@import "bootstrap-social"
+body
+  font-size: 14px
 
 @import "footer"
 @import "products"
+@import "product_card"
+@import "category_card"
+@import "cart_item_card"
 @import "orders"
 
 div.container.header
@@ -43,9 +49,8 @@ div.container.header
 
         footer
 
-        
   div.to-stick
-    z-index: 1
+    z-index: 20
 
     a.navbar-brand
       display: none
@@ -69,23 +74,23 @@ div.container.pages.home
       height: 240px
     margin-bottom: 1em
 
-// thumbnail-common
-.container
-  .thumbnail-common
-    margin-bottom: 1em
+// // thumbnail-common
+// .container
+//   .thumbnail-common
+//     margin-bottom: 1em
 
-.thumbnail-common
-  height: 360px
-  border: none
-  border-radius: 0
-  +box-shadow(0px 0px 5px silver)
-  &:hover
-    border: none
-    text-decoration: none
-    +box-shadow(0px 0px 5px grey)
+// .thumbnail-common
+//   height: 360px
+//   border: none
+//   border-radius: 0
+//   +box-shadow(0px 0px 5px silver)
+//   &:hover
+//     border: none
+//     text-decoration: none
+//     +box-shadow(0px 0px 5px grey)
 
-// thumbnail-product
-// category-category
+// // thumbnail-product
+// // category-category
 
 // devise
 div.new-from-oauth

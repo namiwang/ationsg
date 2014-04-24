@@ -1,0 +1,16 @@
+<!-- = link_to(main_app.category_path(category), class: 'thumbnail thumbnail-common thumbnail-category') do
+  = image_tag('http://placehold.it/200x200', size: '600x600')
+ -->
+<div class="category-card">
+  <div class="icon icon-1">
+    <!-- TODO, category cover img -->
+    <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_2.png" alt="">
+  </div>
+  <div class="content">
+    <h2><%= category.name %></h2>
+    <p>Lorem dolor sit amet consectetur adipisicing elit. Doloremque, minus, blanditiis, voluptatibus nulla.</p>
+    <footer class="pull-right">
+      <%= link_to t('categories.card.see_all'), main_app.category_path(category) %>
+    </footer>
+  </div>
+</div>

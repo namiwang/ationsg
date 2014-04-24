@@ -7,8 +7,9 @@
   .row
     - Category.all.each do |c|
       .col-md-3.item
-        = render partial: 'thumbnails/category', object: c
-      - 10.times do |t|
-        - Product.all.each do |p|
-          .col-md-3.item
-            = render partial: 'thumbnails/product', object: p
+        = render partial: 'cards/category', object: c
+      .product-cards
+        - 10.times do |t|
+          - Product.all.each do |p|
+            .col-md-3.item
+              = render partial: 'cards/product', object: p
