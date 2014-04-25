@@ -1,12 +1,12 @@
-<div class="container header">
+<header class="container main">
 
   <div class="logo">
     <%= link_to main_app.root_path do %>
       <%= image_tag 'logo.png' %>
     <% end %>
   </div>
-  
-  <div class="to-stick">
+
+  <div class="to-stick" data-spy="affix" data-offset-top="200">
     <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
 
@@ -49,5 +49,5 @@
     </nav>    
   </div>
 
-</div>
+</header>
 

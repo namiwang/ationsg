@@ -23,50 +23,13 @@
 body
   font-size: 14px
 
+@import "navbar"
 @import "footer"
 @import "products"
 @import "product_card"
 @import "category_card"
 @import "cart_item_card"
 @import "orders"
-
-div.container.header
-  div.logo
-    text-align: center
-    img
-
-  nav.navbar
-    a.navbar-brand
-      padding: 0
-      img
-        height: 100%
-
-    ul.cart
-      a.cart-btn
-        cursor: pointer
-
-      .cart-wrapper
-        width: 250px
-        padding: 1em
-        .cart-partial
-          overflow-x: hidden
-          overflow-y: scroll
-          max-height: 300px
-
-        footer
-
-  div.to-stick
-    z-index: 20
-
-    a.navbar-brand
-      display: none
-
-  div.is-stuck
-    width: 100%
-    left: 0
-
-    a.navbar-brand
-      display: block
 
 div.container.flash
   a.btn-social
