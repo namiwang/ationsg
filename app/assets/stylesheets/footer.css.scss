@@ -1,8 +1,8 @@
 footer.main {
   margin-top: 2em;
 
-  $footer-background: desaturate(darken($base-accent-color, 20), 30);
-  // $footer-background: #47a3da;
+  // $footer-background: desaturate(darken($base-accent-color, 20), 30);
+  $footer-background: #406B53;
   $footer-color: white;
   $footer-link-color: transparentize($footer-color, .6);
   $footer-disclaimer-color: transparentize($footer-color, .6);
@@ -17,6 +17,7 @@ footer.main {
 
     img {
       height: 3em;
+      background-color: white;
     }
   } 
 

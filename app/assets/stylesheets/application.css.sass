@@ -31,10 +31,16 @@ body
 @import "orders"
 
 div.container.header
-  div.logo img
-    +center-block
+  div.logo
+    text-align: center
+    img
 
   nav.navbar
+    a.navbar-brand
+      padding: 0
+      img
+        height: 100%
+
     ul.cart
       a.cart-btn
         cursor: pointer
