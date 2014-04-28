@@ -13,7 +13,7 @@
               %img{src: 'http://placehold.it/64x64'}
         %nav.btns
           %li
-            %a.add-to-cart{date: {product_id: @product.id}}
+            %a.add-to-cart{data: {:product_id => @product.id}}
               %div
                 %span.glyphicon.glyphicon-shopping-cart
     .col-md-6

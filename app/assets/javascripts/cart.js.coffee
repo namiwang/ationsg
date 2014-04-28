@@ -21,13 +21,13 @@ $ ->
     refresh_btn: ->
       cart_btn = $('nav.navbar ul.cart a.cart-btn')
       cart_span = $('nav.navbar ul.cart span.glyphicon.glyphicon-shopping-cart')
-      cart_partial = cart_btn.siblings('.cart-wrapper').children('.cart-partial')
+      cart_wrapper = cart_btn.siblings('.cart-wrapper')
       cart_btn.fadeOut(400, =>
         cart_span
           .text "(#{@size()})"
-        cart_partial.load "/cart/partial?rnd=#{Math.random()}", (response, status, xhr) -> 
+        cart_wrapper.load "/cart/partial?rnd=#{Math.random()}", (response, status, xhr) -> 
           if status is 'error'
-            cart_partial.load "/cart/partial?rnd=#{Math.random()}"
+            cart_wrapper.load "/cart/partial?rnd=#{Math.random()}"
         # TODO, now will load again if load failed, but that's not enough
 
         cart_btn.fadeIn())

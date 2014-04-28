@@ -2,8 +2,9 @@
   .row
     .col-md-9
       %ul.media-list
-        = render partial: 'cards/cart_item', collection: @cart[:items]
+        = render partial: 'cards/cart_item', collection: @cart.items
 
     .col-md-3
       / TODO affix
+      %p= ( t 'cart.show.total_price_is' ) + ( to_sg_dollar @cart.total_price )
       = link_to t('cart.show.checkout'), main_app.new_order_path, class: 'btn btn-primary btn-block'

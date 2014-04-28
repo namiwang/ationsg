@@ -1,0 +1,22 @@
+<div class="cart-partial">
+  <ul class="media-list">
+    <% cart.items.each do |i| %>
+      <% case i[:type] %>
+      <% when 'product' %>
+        <li class="media">
+          <div class="pull-left">
+            <%= image_tag('http://placehold.it/64x64', size: '64x64', class: 'media-object') %>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading"><% i[:product].name %></h4>
+            <p><%= i[:product].price %></p>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+<footer>
+  <%= t 'cart.show.total_price_is' %><%= to_sg_dollar cart.total_price %>
+  <%= link_to (t 'cart.show.checkout'), main_app.cart_path, class: 'btn btn-primary btn-sm btn-block' %>
+</footer>

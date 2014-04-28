@@ -1,11 +1,7 @@
 %li.dropdown
   / this delay object in data doesn't work
   %a.cart-btn.dropdown-toggle{data: {toggle: 'dropdown'}}
-    %span.glyphicon.glyphicon-shopping-cart= "(#{@cart[:size]})"
+    %span.glyphicon.glyphicon-shopping-cart= "(#{@cart.size})"
     %b.caret
   .cart-wrapper.dropdown-menu
-    .cart-partial
-      = render partial: 'cart/partial', locals: { items: @cart[:items] }, layout: false
-    %footer
-      total amount
-      = link_to (t 'cart.show.checkout'), main_app.cart_path, class: 'btn btn-primary btn-sm btn-block'
+    = render partial: 'cart/navbar_partial', locals: { cart: @cart }, layout: false

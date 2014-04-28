@@ -1,7 +1,9 @@
-.cart-item-card
-  .image
-    = image_tag('http://placehold.it/64x64', size: '64x64', class: 'media-object')
-  .content
-    %h1= cart_item
-    %p ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.
-    %p.detail Date or details about this item
+- case cart_item[:type]
+- when 'product'
+  .cart-item-card
+    .image
+      = image_tag('http://placehold.it/64x64', size: '64x64', class: 'media-object')
+    .content
+      %h1= cart_item[:product].name
+      %p= cart_item[:product].description.truncate(100)
+      %p.detail= to_sg_dollar cart_item[:product].price

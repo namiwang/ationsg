@@ -3,20 +3,15 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :get_cart_items
+  include CartModule
 
-  private
+  before_action :cart_init
 
-  def get_cart_items
-    begin
-      @cart = {items: (JSON.parse cookies[:cart_items])}
-    rescue
-      @cart = {items: []}
-    ensure
-      @cart[:size] = @cart[:items].size
-      # TODO @cart[:total_price] = 0
-    end
+  def cart_init
+    @cart = Cart.new
+    @cart.initialize_from_cookie cookies[:cart_items]
+    @cart.reset unless @cart.valid?
+    cookies[:cart_items] = @cart.items.to_json
+    @cart.parse_to_model
   end
-
-  # TODO, validate cart, say no negative item amount
 end

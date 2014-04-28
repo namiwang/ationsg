@@ -21,6 +21,7 @@ zh-CN:
   cart:
     show:
       checkout: 结算
+      total_price_is: 总计：
 
   orders:
     new:
