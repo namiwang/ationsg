@@ -5,11 +5,13 @@
         = render partial: 'shared/home_slide'
 
   .row
-    - Category.all.each do |c|
-      .col-md-3.item
-        = render partial: 'cards/category', object: c
-      .product-cards
-        - 10.times do |t|
-          - Product.all.each do |p|
-            .col-md-3.item
-              = render partial: 'cards/product', object: p
+    - 3.times do
+      .category-wrapper
+        - Category.all.each do |c|
+          .col-md-3
+            = render partial: 'cards/category', object: c
+          .product-cards
+            - Random.new.rand(3..6).times do |t|
+              - Product.all.each do |p|
+                .col-md-3.item
+                  = render partial: 'cards/product', object: p
