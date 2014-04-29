@@ -16,6 +16,16 @@ GIT
       ransack (~> 1.0)
       sass-rails
 
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 41da3a3c4c139964a9877c77220f94200d73c87a
+  specs:
+    paperclip (4.1.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -47,6 +57,7 @@ GEM
       activesupport (>= 3.0.0)
     arel (4.0.2)
     atomic (1.1.16)
+    awesome_print (1.2.0)
     bcrypt (3.1.7)
     bitters (0.9.3)
       bourbon (>= 3.1)
@@ -58,6 +69,10 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.1.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.4)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -218,6 +233,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  awesome_print
   bitters
   bootstrap-sass
   bourbon
@@ -235,6 +251,7 @@ DEPENDENCIES
   normalize-rails
   omniauth
   omniauth-gplus
+  paperclip!
   pry
   rails (= 4.0.3)
   rails-i18n

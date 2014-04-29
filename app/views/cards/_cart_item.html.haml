@@ -2,7 +2,7 @@
 - when 'product'
   .cart-item-card
     .image
-      = image_tag('http://placehold.it/64x64', size: '64x64', class: 'media-object')
+      = image_tag cart_item[:product].cover.url
     .content
       %h1= cart_item[:product].name
       %p= cart_item[:product].description.truncate(100)

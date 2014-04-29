@@ -1,0 +1,15 @@
+<%= form.inputs "Images" do %>
+
+  <% resource.images.build %>
+  <%= form.semantic_fields_for :images do |i| %>
+    <% if i.object.new_record? %>
+      <%= i.input :attachment , as: :file, label: 'attach a new image' %>
+    <% else %>
+      <li>
+        <label><%= i.check_box :_destroy %> Delete?</label>
+        <%= image_tag i.object.attachment.url %>
+      </li>
+    <% end %>
+  <% end %>
+
+<% end %>

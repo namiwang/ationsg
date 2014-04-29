@@ -14,6 +14,8 @@ ActiveAdmin.register Category do
   #  permitted
   # end
 
-  permit_params :name
+  permit_params :name, images_attributes: [:_destroy, :id, :attachment]
+
+  form partial: 'form'
   
 end

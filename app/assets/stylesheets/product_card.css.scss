@@ -50,6 +50,7 @@ div.product-card {
       background: $card-image-background;
       border-top-left-radius: $base-border-radius;
       border-top-right-radius: $base-border-radius;
+      background-size: cover;
     }
   }
 

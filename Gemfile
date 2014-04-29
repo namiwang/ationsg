@@ -72,4 +72,7 @@ gem 'figaro'
 
 group :development do
   gem 'pry'
+  gem 'awesome_print'
 end
+
+gem 'paperclip', github: 'thoughtbot/paperclip'
