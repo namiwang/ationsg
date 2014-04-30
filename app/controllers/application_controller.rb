@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   include CartModule
 
   before_action :cart_init
+  before_action :empty_flash
 
   def cart_init
     @cart = Cart.new
@@ -13,5 +14,9 @@ class ApplicationController < ActionController::Base
     @cart.reset unless @cart.valid?
     cookies[:cart_items] = @cart.items.to_json
     @cart.parse_to_model
+  end
+
+  def empty_flash
+    flash = {}
   end
 end

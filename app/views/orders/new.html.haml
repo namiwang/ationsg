@@ -15,29 +15,27 @@
       %li
         .cbp_tmtime
           %span= t 'orders.new.step_2'
-          %span= t 'orders.new.confirm_sender_info'
-        .cbp_tmicon
-          %i.fa.fa-user
-        .cbp_tmlabel
-          %div.form-horizontal
-            .form-group
-              = f.label :buyer_name, class: 'control-label col-sm-2'
-              .col-sm-10
-                = f.text_field :buyer_name, class: 'form-control', value: current_user.name
-            .form-group
-              = f.label :buyer_phone, class: 'control-label col-sm-2'
-              .col-sm-10
-                = f.telephone_field :buyer_phone, class: 'form-control', value: current_user.phone
-      %li
-        .cbp_tmtime
-          %span= t 'orders.new.step_3'
           %span= t 'orders.new.confirm_transport_info'
         .cbp_tmicon
           %i.fa.fa-truck
         .cbp_tmlabel
+          = f.fields_for :transport do |transport|
+            %div.form-horizontal
+              .form-group
+                = transport.label :recipient_name, class: 'control-label col-sm-2'
+                .col-sm-10
+                  = transport.text_field :recipient_name, class: 'form-control'
+              .form-group
+                = transport.label :recipient_phone, class: 'control-label col-sm-2'
+                .col-sm-10
+                  = transport.telephone_field :recipient_phone, class: 'form-control'
+              .form-group
+                = transport.label :recipient_address, class: 'control-label col-sm-2'
+                .col-sm-10
+                  = transport.telephone_field :recipient_address, class: 'form-control'
       %li
         .cbp_tmtime
-          %span= t 'orders.new.step_4'
+          %span= t 'orders.new.step_3'
           %span= t 'orders.new.pay'
         .cbp_tmicon
           %i.fa.fa-dollar

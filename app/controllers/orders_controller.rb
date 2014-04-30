@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @order.build_transport
   end
 
   def create
@@ -32,7 +33,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:buyer_name, :buyer_phone)
+    params.require(:order).permit(transport_attributes: [:recipient_name, :recipient_phone, :recipient_address])
   end
 
   def get_order

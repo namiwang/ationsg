@@ -28,9 +28,8 @@ zh-CN:
       step_1: STEP 1
       confirm_cart: 确认购物车
       step_2: STEP 2
-      confirm_sender_info: 确认您的个人信息
-      step_3: STEP 3
       confirm_transport_info: 确认递送信息
+      step_3: STEP 3
       step_4: STEP 4
       pay: 支付
       submit_and_pay: 去支付

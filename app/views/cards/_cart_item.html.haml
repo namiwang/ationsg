@@ -5,5 +5,5 @@
       = image_tag cart_item[:product].cover
     .content
       %h1= cart_item[:product].name
-      %p= cart_item[:product].description.truncate(100)
+      / %p= cart_item[:product].description.truncate(100)
       %p.detail= to_sg_dollar cart_item[:product].price
