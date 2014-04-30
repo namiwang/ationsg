@@ -2,7 +2,7 @@
 - when 'product'
   .cart-item-card
     .image
-      = image_tag cart_item[:product].cover.url
+      = image_tag cart_item[:product].cover
     .content
       %h1= cart_item[:product].name
       %p= cart_item[:product].description.truncate(100)

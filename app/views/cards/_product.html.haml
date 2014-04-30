@@ -1,0 +1,21 @@
+%a.product-card{href: main_app.product_path(product)}
+  .product-card
+    .ribbon-wrapper
+      .ribbon NEW
+    .card-image
+      = image_tag product.cover
+    .card-header
+      = product.name
+    .card-content
+      = simple_format product.description.truncate(140)
+    .card-stats
+      %ul
+        %li
+          98
+          %span Items
+        %li
+          298
+          %span Things
+        %li
+          923
+          %span Objects

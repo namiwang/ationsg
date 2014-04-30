@@ -1,0 +1,4 @@
+zh-CN:
+  admin:
+    products:
+      price_unit: '以分为单位，如 1.50 则输入 150'

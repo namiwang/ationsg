@@ -18,6 +18,33 @@ ActiveAdmin.register Product do
 
   form partial: 'form'
 
+  show do |product|
+    panel 'Info' do
+      attributes_table_for product do
+        row :name
+        row :price
+        row :description do
+          pre do
+            raw product.description
+          end
+        end
+      end
+    end
+
+    panel 'Association' do
+      # category
+    end
+
+    panel 'Images' do
+      if product.images.size > 0
+        table_for product.images do
+          column 'Image' do |image|
+            image_tag image.url
+          end
+        end
+      end
+    end
+  end
   # form do |f|
   #   f.inputs "Info" do
   #     f.input :name

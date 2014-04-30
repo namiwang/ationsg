@@ -5,12 +5,12 @@
       <% when 'product' %>
         <li class="media">
           <div class="pull-left">
-            <div class="cover" style="background-image: url(<%= "\"#{i[:product].cover.url}\"" %>)">
+            <div class="cover" style="background-image: url(<%= "\"#{i[:product].cover}\"" %>)">
             </div>
           </div>
           <div class="media-body">
-            <h4 class="media-heading"><% i[:product].name %></h4>
-            <p><%= i[:product].price %></p>
+            <p class="media-heading"><%= i[:product].name -%></p>
+            <p><%= to_sg_dollar i[:product].price -%></p>
           </div>
         </li>
       <% end %>
