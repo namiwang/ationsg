@@ -13,8 +13,12 @@ module CartModule
       begin
         @items = JSON.parse(cookie).each{ |i| i.symbolize_keys! }
       rescue
+        clear
       ensure
+        clear unless valid?
+        parse_to_model
       end
+      return self
     end
 
     def valid?
@@ -30,6 +34,26 @@ module CartModule
       # TODO amount must be positive
     end
 
+    def cookie_version
+      @items.map do |i|
+        case i[:type]
+        when 'product'
+          {type: 'product', product: i[:product].id}
+        end
+      end.to_json
+    end
+
+    def save_to_order_version
+      r = {size: size, total_price: total_price, items: []}
+      r[:items] = items.map do |i|
+        case i[:type]
+        when 'product'
+          {type: 'product', product: i[:product].id, price: i[:product].price }
+        end
+      end
+      r
+    end
+
     def parse_to_model
       @items.each do |i|
         case i[:type]
@@ -39,7 +63,7 @@ module CartModule
       end
     end
 
-    def reset
+    def clear
       @items = []
     end
 

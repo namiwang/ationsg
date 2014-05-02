@@ -10,14 +10,23 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new order_params
+    # user
     @order.user = current_user
-    if @order.valid?
-      @order.save
-      redirect_to order_pay_path(@order)
-    else
+    # transport
+    # cart
+    @order.cart = @cart.save_to_order_version
+
+    if not @order.valid?
       flash[:alert] = @order.errors.full_messages
       render 'new'
     end
+
+    @order.save!
+    @order.create
+    # TODO
+    # 2. order.transport.state -> created
+    cart_clear
+    redirect_to order_pay_path(@order)
   end
 
   def index
@@ -28,6 +37,9 @@ class OrdersController < ApplicationController
   end
 
   def pay
+    # TODO, check order state
+
+    render 
   end
 
   private

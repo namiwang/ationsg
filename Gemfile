@@ -77,3 +77,7 @@ group :development do
 end
 
 gem 'paperclip', github: 'thoughtbot/paperclip'
+
+gem 'aasm'
+
+gem 'nested-hstore'

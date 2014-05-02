@@ -1,2 +1,4 @@
-- @orders.each do |o|
-  = render partial: 'orders/order', object: o
+.my-orders
+  .order-cards.panel-group
+    - @orders.each_with_index do |o, i|
+      = render partial: 'cards/order', object: o, locals: {collapse_in: (i == 0)}

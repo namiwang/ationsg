@@ -1,1 +1,4 @@
-pay.html.haml
+.container.orders.pay
+  = render partial: 'cards/order', object: @order, locals: {collapse_in: false}
+  %hr
+  .choose-pay-method

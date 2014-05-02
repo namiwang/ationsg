@@ -5,8 +5,8 @@
     <%= f.input :description %>
   <% end %>
 
-  <% f.inputs "Associations" do %>
-    <!-- category -->
+  <%= f.inputs "Associations" do %>
+    <%= f.input :category %>
   <% end %>
 
   <%= render :partial => "admin/images/form", :locals => { :form => f, :resource => @product } %>

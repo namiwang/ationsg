@@ -6,17 +6,23 @@ class ApplicationController < ActionController::Base
   include CartModule
 
   before_action :cart_init
-  before_action :empty_flash
+  before_action :flash_clear
 
   def cart_init
-    @cart = Cart.new
-    @cart.initialize_from_cookie cookies[:cart_items]
-    @cart.reset unless @cart.valid?
-    cookies[:cart_items] = @cart.items.to_json
-    @cart.parse_to_model
+    @cart = Cart.new.initialize_from_cookie cookies[:cart_items]
+    cart_save_to_cookie
   end
 
-  def empty_flash
-    flash = {}
+  def cart_save_to_cookie
+    cookies[:cart_items] = @cart.cookie_version
+  end
+
+  def cart_clear
+    @cart.clear
+    cart_save_to_cookie
+  end
+
+  def flash_clear
+    flash.clear
   end
 end

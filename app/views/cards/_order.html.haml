@@ -1,0 +1,26 @@
+- order_token = SecureRandom.hex(10)
+.order-card.panel.panel-default
+  .panel-heading
+    .panel-title
+      %a{"data-parent" => ".order-cards", "data-toggle" => "collapse", href: "#order-card-#{order_token}"}
+        %i.fa.fa-caret-square-o-down
+          = t 'common.time.ago', time: ( time_ago_in_words (Time.now - order.created_at).seconds.from_now )
+  .panel-collapse.collapse{id: "order-card-#{order_token}", class: ('in' if collapse_in)}
+    .panel-body
+      %table.table.table-hover
+        %tbody
+          - order.cart[:items].each do |i|
+            %tr
+              - case i[:type]
+              - when 'product'
+                %td.cover
+                  .cover{style: "background-image: url(#{i[:product].cover})"}
+                %td.name= i[:product].name
+                %td.price= to_sg_dollar i[:price]
+                %td.other
+        %tfoot
+          %tr
+            %td
+            %td
+            %td.price= to_sg_dollar order.cart[:total_price]
+            %td

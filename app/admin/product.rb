@@ -14,10 +14,14 @@ ActiveAdmin.register Product do
   #  permitted
   # end
 
-  permit_params :name, :description, images_attributes: [:_destroy, :id, :attachment]
+  permit_params :name, :description, :price,
+    :category_id, 
+    images_attributes: [:_destroy, :id, :attachment]
 
+  # form
   form partial: 'form'
 
+  # show 
   show do |product|
     panel 'Info' do
       attributes_table_for product do
@@ -32,7 +36,9 @@ ActiveAdmin.register Product do
     end
 
     panel 'Association' do
-      # category
+      attributes_table_for product do
+        row :category
+      end
     end
 
     panel 'Images' do
@@ -45,6 +51,15 @@ ActiveAdmin.register Product do
       end
     end
   end
+
+  # index
+  index do
+    column :name
+    column :price
+    column :category
+    default_actions
+  end
+
   # form do |f|
   #   f.inputs "Info" do
   #     f.input :name

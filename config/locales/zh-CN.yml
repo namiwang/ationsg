@@ -4,6 +4,9 @@ zh-CN:
     submit: 提交
     save: 保存
 
+    time:
+      ago: "%{time} 之前"
+
   nav:
     my_orders: 我的订单
     my_addresses: 我的常用地址
@@ -47,5 +50,7 @@ zh-CN:
         name: 姓名
         phone: 电话
       order:
-        buyer_name: 订购者姓名
-        buyer_phone: 订购者电话
+      transport:
+        recipient_name: 收件人姓名
+        recipient_phone: 收件人电话
+        recipient_address: 收件人地址

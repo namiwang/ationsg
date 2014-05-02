@@ -29,6 +29,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    aasm (3.1.1)
     actionmailer (4.0.3)
       actionpack (= 4.0.3)
       mail (~> 2.5.4)
@@ -47,6 +48,10 @@ GEM
       activesupport (= 4.0.3)
       arel (~> 4.0.0)
     activerecord-deprecated_finders (1.0.3)
+    activerecord-postgres-hstore (0.7.7)
+      activerecord (>= 3.1)
+      pg-hstore (>= 1.1.5)
+      rake
     activesupport (4.0.3)
       i18n (~> 0.6, >= 0.6.4)
       minitest (~> 4.2)
@@ -139,6 +144,10 @@ GEM
     neat (1.5.1)
       bourbon (>= 3.1)
       sass (~> 3.2.19)
+    nested-hstore (0.0.5)
+      activerecord
+      activerecord-postgres-hstore
+      activesupport
     normalize-rails (3.0.1)
     oauth2 (0.9.3)
       faraday (>= 0.8, < 0.10)
@@ -158,6 +167,7 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.17.1)
+    pg-hstore (1.2.0)
     polyamorous (1.0.0)
       activerecord (>= 3.0)
     polyglot (0.3.4)
@@ -233,6 +243,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   activeadmin!
   awesome_print
   bitters
@@ -249,6 +260,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   neat
+  nested-hstore
   normalize-rails
   omniauth
   omniauth-gplus

@@ -1,6 +1,7 @@
 .cart-item-card {
   $cart-item-card-gutter: 1.4em;
-  $cart-item-card-image-padding: .7em;
+  // $cart-item-card-image-padding: .7em;
+  $cart-item-card-image-padding: 0;
   $cart-item-card-image-width: 4em;
   $cart-item-card-color: $base-font-color;
   $cart-item-card-background: lighten($base-accent-color, 15);

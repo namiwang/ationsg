@@ -17,7 +17,9 @@
     <% end %>
   </ul>
 </div>
-<footer>
-  <%= t 'cart.show.total_price_is' %><%= to_sg_dollar cart.total_price %>
-  <%= link_to (t 'cart.show.checkout'), main_app.cart_path, class: 'btn btn-primary btn-sm btn-block' %>
-</footer>
+<% if cart.size > 0 %>
+  <footer>
+    <%= t 'cart.show.total_price_is' %><%= to_sg_dollar cart.total_price %>
+    <%= link_to (t 'cart.show.checkout'), main_app.cart_path, class: 'btn btn-primary btn-sm btn-block' %>
+  </footer>
+<% end %> 
