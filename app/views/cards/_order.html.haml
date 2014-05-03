@@ -17,7 +17,7 @@
               - case i[:type]
               - when 'product'
                 %td.cover
-                  .cover{style: "background-image: url(#{i[:product].cover})"}
+                  .cover{style: "background-image: url(#{background_image_url i[:product].cover})"}
                 %td.name= i[:product].name
                 %td.price= to_sg_dollar i[:price]
                 %td.other

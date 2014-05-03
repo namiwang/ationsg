@@ -4,11 +4,11 @@
       .product-wrapper.img-slide.img-slide-wrapper
         .img-slide.img-primary-wrapper
           .img-slide.img-primary-second-wrapper
-            .img-slide.img-primary{style: "background-image: url(#{@product.cover})"}
+            .img-slide.img-primary{style: "background-image: url(#{background_image_url @product.cover})"}
         %nav.img-slide.imgs-nav
           - @product.images.each do |i|
             %li
-              %a.img-slide.img-link{style: "background-image: url(#{i.url})"}
+              %a.img-slide.img-link{style: "background-image: url(#{background_image_url i.url})"}
         %nav.btns
           %li
             %a.add-to-cart{data: {:product_id => @product.id}}
