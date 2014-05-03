@@ -1,7 +1,7 @@
 source 'http://rubygems.org/'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.0'
 
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
@@ -69,10 +69,13 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'rails-i18n'
 
-gem 'figaro'
+gem 'figaro' # application.yml
+# TODO rails 4.1 got secrets.yml
 
 group :development do
+  gem 'spring'
   gem 'pry'
+  gem 'pry-debugger'
   gem 'awesome_print'
 end
 

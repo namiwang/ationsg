@@ -19,14 +19,14 @@ class OrdersController < ApplicationController
     if not @order.valid?
       flash[:alert] = @order.errors.full_messages
       render 'new'
+    else
+      @order.save!
+      @order.create
+      # TODO
+      # 2. order.transport.state -> created
+      cart_clear
+      redirect_to order_pay_path(@order)
     end
-
-    @order.save!
-    @order.create
-    # TODO
-    # 2. order.transport.state -> created
-    cart_clear
-    redirect_to order_pay_path(@order)
   end
 
   def index
@@ -38,8 +38,7 @@ class OrdersController < ApplicationController
 
   def pay
     # TODO, check order state
-
-    render 
+    @order.build_payment
   end
 
   private

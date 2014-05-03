@@ -3,8 +3,10 @@ zh-CN:
   common:
     submit: 提交
     save: 保存
+    colon: '：'
 
     time:
+      created_at: 创建于：
       ago: "%{time} 之前"
 
   nav:
@@ -33,9 +35,15 @@ zh-CN:
       step_2: STEP 2
       confirm_transport_info: 确认递送信息
       step_3: STEP 3
+      more_comments: 更多需求请给我们留言
       step_4: STEP 4
       pay: 支付
       submit_and_pay: 去支付
+
+    card:
+      transport_info: 递送信息
+      transaction_info: 支付信息
+      transaction_state: 支付状态
 
 # --- active record
   activerecord:
@@ -50,7 +58,15 @@ zh-CN:
         name: 姓名
         phone: 电话
       order:
+        customer_message: 顾客留言
+        aasm_state:
+          initialized: TODO Initialized
+          created: TODO Created
       transport:
         recipient_name: 收件人姓名
         recipient_phone: 收件人电话
         recipient_address: 收件人地址
+      payment:
+        aasm_state:
+          initialized: TODO Initialized
+          created: TODO Created

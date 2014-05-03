@@ -1,8 +1,12 @@
 class Order < ActiveRecord::Base
   # associations
   belongs_to :user
+
   has_one :transport
   accepts_nested_attributes_for :transport, allow_destroy: true
+
+  has_one :payment
+  accepts_nested_attributes_for :payment, allow_destroy: true
 
   # validations
   validates :user, :transport, presence: true
@@ -12,16 +16,11 @@ class Order < ActiveRecord::Base
   include AASM
 
   aasm do
-    state :initialed, :initial => true
+    state :initialized, :initial => true
     state :created
-    state :payed
 
     event :create do
-      transitions from: :initialed, to: :created
-    end
-
-    event :pay do
-      transitions from: :created, to: :payed
+      transitions from: :initialized, to: :created
     end
   end
 
@@ -39,4 +38,5 @@ class Order < ActiveRecord::Base
     end
     r
   end
+
 end

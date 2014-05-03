@@ -4,6 +4,9 @@
     .panel-title
       %a{"data-parent" => ".order-cards", "data-toggle" => "collapse", href: "#order-card-#{order_token}"}
         %i.fa.fa-caret-square-o-down
+          = to_sg_dollar order.cart[:total_price]
+          ,
+          = t 'common.time.created_at'
           = t 'common.time.ago', time: ( time_ago_in_words (Time.now - order.created_at).seconds.from_now )
   .panel-collapse.collapse{id: "order-card-#{order_token}", class: ('in' if collapse_in)}
     .panel-body
@@ -24,3 +27,11 @@
             %td
             %td.price= to_sg_dollar order.cart[:total_price]
             %td
+      %footer
+        %dl.dl-horizontal
+          %dt= t 'orders.card.transport_info'
+          %dd= order.transport.recipient_address
+          %dd= order.transport.recipient_name
+          %dd= order.transport.recipient_phone
+          %dt= t 'orders.card.transaction_info'
+          %dd= order.payment.aasm.human_state

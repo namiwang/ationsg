@@ -36,6 +36,18 @@
       %li
         .cbp_tmtime
           %span= t 'orders.new.step_3'
+          %span= t 'orders.new.more_comments'
+        .cbp_tmicon
+          %i.fa.fa-comment-o
+        .cbp_tmlabel
+          %div.form-horizontal
+            .form-group
+              = f.label :customer_message, class: 'control-label col-sm-2'
+              .col-sm-10
+                = f.text_area :customer_message, class: 'form-control', rows: 5
+      %li
+        .cbp_tmtime
+          %span= t 'orders.new.step_4'
           %span= t 'orders.new.pay'
         .cbp_tmicon
           %i.fa.fa-dollar

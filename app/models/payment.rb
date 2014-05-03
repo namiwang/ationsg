@@ -1,9 +1,11 @@
-class Transport < ActiveRecord::Base
+class Payment < ActiveRecord::Base
   # associations
   belongs_to :order, dependent: :destroy
 
   # validations
-  validates_presence_of :recipient_name, :recipient_phone, :recipient_address
+  # validates_presence_of :order
+  validates_inclusion_of :method, :in => %w( paypal ), message: "not valid payment method"
+  # TODO message I18N
 
   # state machine
   include AASM
@@ -11,14 +13,11 @@ class Transport < ActiveRecord::Base
   aasm do
     state :initialized, :initial => true
     state :created
-    state :shipped
 
     event :create do
       transitions from: :initialized, to: :created
     end
-
-    event :ship do
-      transitions from: :created, to: :shipped
-    end
   end
+
+  
 end
