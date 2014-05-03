@@ -1,16 +1,11 @@
-// TODO, use var colors
+@import "img_slide"
+
 $product-show-border-color: desaturate(darken($base-accent-color, 20), 30)
 
 // product-show
 .container.products.show .product-wrapper
   width: 100%
   border: 4px solid $product-show-border-color
-
-  .big-img
-    width: 100%
-    img
-      width: 100%
-      height: auto
 
   nav
     width: 100%
@@ -19,14 +14,6 @@ $product-show-border-color: desaturate(darken($base-accent-color, 20), 30)
     li
       list-style: none
       cursor: pointer
-
-  nav.imgs
-    height: 68px
-
-    li
-      width: 68px
-      float: left
-      border-right: 4px solid $product-show-border-color
 
   nav.btns
     height: 52px
@@ -51,3 +38,4 @@ $product-show-border-color: desaturate(darken($base-accent-color, 20), 30)
         &:hover
           background-color: $product-show-border-color
           color: #fff
+

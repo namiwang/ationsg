@@ -1,0 +1,35 @@
+$img-slide-border-color: desaturate(darken($base-accent-color, 20), 30)
+
+.img-slide.img-slide-wrapper
+  .img-slide.img-primary-wrapper
+    width: 100%
+    height: 0
+    padding-bottom: 100%
+    position: relative
+
+    .img-slide.img-primary-second-wrapper
+      height: 100%
+      width: 100%
+      padding: 1em
+      position: absolute
+
+      .img-slide.img-primary
+        +background_img_contain
+        height: 100%
+        width: 100%
+
+  nav.img-slide.imgs-nav
+    height: 68px
+
+    li
+      height: 100%
+      width: 68px
+      float: left
+      border-right: 4px solid $img-slide-border-color
+      padding: 0.1em
+
+      a.img-slide.img-link
+        display: block
+        height: 100%
+        width: 100%
+        +background_img_contain

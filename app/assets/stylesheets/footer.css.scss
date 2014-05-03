@@ -32,6 +32,8 @@ footer.main {
   ul {
     margin-bottom: $base-line-height*2;
 
+    list-style: none;
+
     @include media($medium-screen) {
       @include span-columns(3);
       @include omega(3n);
