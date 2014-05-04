@@ -50,6 +50,7 @@ zh-CN:
     models:
       user: 用户
       order: 订单
+      payment: 交易
     attributes:
       user:
         email: 邮箱
@@ -58,15 +59,18 @@ zh-CN:
         name: 姓名
         phone: 电话
       order:
-        customer_message: 顾客留言
-        aasm_state:
-          initialized: TODO Initialized
-          created: TODO Created
+        one: 
+          customer_message: 顾客留言
+          aasm_state:
+            initialized: 'TODO Initialized'
+            created: 'TODO Created'
       transport:
         recipient_name: 收件人姓名
         recipient_phone: 收件人电话
         recipient_address: 收件人地址
       payment:
-        aasm_state:
-          initialized: TODO Initialized
-          created: TODO Created
+        one: # https://github.com/gregbell/active_admin/issues/771
+          method: TODO
+          aasm_state:
+            initialized: 'TODO Initialized'
+            created: 'TODO Created'
