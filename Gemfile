@@ -60,6 +60,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'omniauth'
 gem 'omniauth-gplus'
+gem 'omniauth-facebook'
 
 gem 'haml'
 

@@ -3,6 +3,10 @@ class AuthenticationsController < Devise::OmniauthCallbacksController
     authorize 'gplus'
   end
 
+  def facebook
+    authorize 'facebook'
+  end
+
   private
 
   def authorize(provider)

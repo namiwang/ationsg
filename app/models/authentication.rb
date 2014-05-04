@@ -3,7 +3,10 @@ class Authentication < ActiveRecord::Base
   belongs_to :user
 
   # validations
-  validates_presence_of :provider, :uid
+  validates_presence_of :user, :provider, :uid
+  validates_inclusion_of :provider, :in => %w( gplus facebook ), message: 'not valid provider'
+  # TODO message i18n
+
 
   class << self
     def find_user(provider, uid)

@@ -167,6 +167,8 @@ GEM
     omniauth (1.2.1)
       hashie (>= 1.2, < 3)
       rack (~> 1.0)
+    omniauth-facebook (1.6.0)
+      omniauth-oauth2 (~> 1.1)
     omniauth-gplus (1.2.0)
       omniauth-oauth2 (~> 1.1)
     omniauth-oauth2 (1.1.2)
@@ -279,6 +281,7 @@ DEPENDENCIES
   nested-hstore
   normalize-rails
   omniauth
+  omniauth-facebook
   omniauth-gplus
   paperclip!
   pg

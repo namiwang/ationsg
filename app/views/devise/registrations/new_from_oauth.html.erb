@@ -12,6 +12,9 @@
     <% when 'gplus' %>
       <% oauth_got_email = session[:oauth].info.email %>
       <% oauth_got_name = session[:oauth].info.name %>
+    <% when 'facebook' %>
+      <% oauth_got_email = session[:oauth].info.email %>
+      <% oauth_got_name = session[:oauth].info.name %>    
     <% end %>
 
     <!-- Email -->
