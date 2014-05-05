@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :get_order, only: [:show, :pay]
-  before_action :self_order?, only: [:show, :pay]
+  before_action :chk_order_ownership, only: [:show, :pay]
 
   def new
     @order = Order.new
@@ -25,21 +25,21 @@ class OrdersController < ApplicationController
       # TODO
       # 2. order.transport.state -> created
       cart_clear
-      redirect_to order_pay_path(@order)
+      redirect_to pay_order_path(id: @order.id)
     end
+  end
+
+  def pay
+    # check order payment state
   end
 
   def index
     @orders = current_user.orders
   end
 
-  def show
-  end
-
-  def pay
-    # TODO, check order state
-    @order.build_payment
-  end
+  # TODO should use orders#show to render order card
+  # def show
+  # end
 
   private
 
@@ -48,14 +48,11 @@ class OrdersController < ApplicationController
   end
 
   def get_order
-    begin
-      @order = Order.find(params[:id] || params[:order_id])
-    rescue
-      redirect_to root_path
-    end
+    redirect_to root_path unless Order.exists? params[:id]
+    @order = Order.find params[:id]
   end
 
-  def self_order?
-    @order.user == current_user 
+  def chk_order_ownership
+    redirect_to root_path unless @order.user == current_user 
   end
 end

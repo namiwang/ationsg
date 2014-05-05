@@ -1,9 +1,10 @@
 <% if not flash.empty? %>
-  <% bptype = {notice: 'info', alert: 'warning'} %>
+  <% bptype = {notice: 'info', "notice" => 'info', alert: 'warning', "alert" => 'warning'} %>
   <div class="container flash">
     <% flash.each do |type, msgs| -%>
       <% if msgs.kind_of?(Array) %>
         <% msgs.each do |msg| %>
+          <% binding.pry %>
           <div class="alert alert-<%= bptype[type] %> alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <%= msg %>

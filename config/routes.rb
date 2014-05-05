@@ -81,9 +81,12 @@ Ationsg::Application.routes.draw do
   get 'cart/partial' => 'cart#partial', as: :cart_partial
 
   # orders
-  resources :orders, only: [:new, :create, :show] do
-    get 'pay' => 'orders#pay', as: :pay
-  end
+  resources :orders, only: [:new, :create, :show]
+  get 'orders/:id/pay' => 'orders#pay', as: :pay_order
+
+  # payments
+  resources :payments, only: [:create]
+  get 'payments/new/order/:order_id/method/:method' => 'payments#new', as: :new_payment
 
   # my
   get 'my' => 'my#info'

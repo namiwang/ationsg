@@ -29,9 +29,13 @@
             %td
       %footer
         %dl.dl-horizontal
+          / TODO, customer message here
           %dt= t 'orders.card.transport_info'
-          %dd= order.transport.recipient_address
-          %dd= order.transport.recipient_name
-          %dd= order.transport.recipient_phone
+          - if order.transport
+            %dd= order.transport.recipient_address
+            %dd= order.transport.recipient_name
+            %dd= order.transport.recipient_phone
+            %dd= order.transport.aasm.human_state
           %dt= t 'orders.card.transaction_info'
-          %dd= order.payment.aasm.human_state
+          - if order.payment
+            %dd= order.payment.aasm.human_state
