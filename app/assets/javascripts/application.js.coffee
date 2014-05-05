@@ -6,6 +6,7 @@
 # = require navbar
 # = require cookies
 # = require cart
+# = require analytics
 # = require turbolinks
 
 $ ->
