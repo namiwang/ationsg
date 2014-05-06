@@ -13,6 +13,8 @@ class OrdersController < ApplicationController
     # user
     @order.user = current_user
     # transport
+    # payment
+    @order.build_payment
     # cart
     @order.cart = @cart.save_to_order_version
 

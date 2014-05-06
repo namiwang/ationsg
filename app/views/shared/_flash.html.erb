@@ -4,7 +4,6 @@
     <% flash.each do |type, msgs| -%>
       <% if msgs.kind_of?(Array) %>
         <% msgs.each do |msg| %>
-          <% binding.pry %>
           <div class="alert alert-<%= bptype[type] %> alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <%= msg %>

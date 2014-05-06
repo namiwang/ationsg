@@ -2,5 +2,7 @@
   = render partial: 'cards/order', object: @order, locals: {collapse_in: true}
   %hr
   .choose-pay-method
-    = link_to new_payment_path(order_id: @order, method: 'paypal') do
-      = image_tag 'https://www.paypalobjects.com/webstatic/en_US/btn/btn_checkout_pp_142x27.png'
+    %p= t 'orders.pay.select_pay_method'
+    %pre.well
+      = link_to new_payment_path(order_id: @order, method: 'paypal') do
+        = image_tag 'https://www.paypalobjects.com/webstatic/en_US/btn/btn_checkout_pp_142x27.png'

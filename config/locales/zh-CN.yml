@@ -41,9 +41,13 @@ zh-CN:
       submit_and_pay: 去支付
 
     card:
-      transport_info: 递送信息
-      transaction_info: 支付信息
-      transaction_state: 支付状态
+      recipient_info: 收件人信息
+      transport_state: 递送状态
+      payment_state: 支付状态
+      payment_info: 支付信息
+
+    pay:
+      select_pay_method: 请选择支付方式
 
 # --- active record
   activerecord:
@@ -60,21 +64,15 @@ zh-CN:
         phone: 电话
       order:
         customer_message: 顾客留言
-        one: 
-          aasm_state:
-            initialized: 'TODO Initialized'
-            created: 'TODO Created'
       transport:
         recipient_name: 收件人姓名
         recipient_phone: 收件人电话
         recipient_address: 收件人地址
-        one:
-          aasm_state:
-            initialized: 'TODO Initialized'
-            created: 'TODO Created'
       payment:
         method: TODO
-        one: # https://github.com/gregbell/active_admin/issues/771
-          aasm_state:
-            initialized: 'TODO Initialized'
-            created: 'TODO Created'
+        states:
+          initialized: 尚未选择支付方式
+          craeted: 已经选择支付方式，支付尚未完成
+          cancled: 支付已取消
+          error: 支付遇到问题
+          success: 支付成功

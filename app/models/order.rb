@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
   has_one :transport
   accepts_nested_attributes_for :transport, allow_destroy: true
 
-  has_one :payment
+  has_many :payment
   accepts_nested_attributes_for :payment, allow_destroy: true
 
   # validations

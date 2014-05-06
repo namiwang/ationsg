@@ -10,32 +10,44 @@
           = t 'common.time.ago', time: ( time_ago_in_words (Time.now - order.created_at).seconds.from_now )
   .panel-collapse.collapse{id: "order-card-#{order_token}", class: ('in' if collapse_in)}
     .panel-body
-      %table.table.table-hover
-        %tbody
-          - order.cart[:items].each do |i|
-            %tr
-              - case i[:type]
-              - when 'product'
-                %td.cover
-                  .cover{style: "background-image: url(#{background_image_url i[:product].cover})"}
-                %td.name= i[:product].name
-                %td.price= to_sg_dollar i[:price]
-                %td.other
-        %tfoot
-          %tr
-            %td
-            %td
-            %td.price= to_sg_dollar order.cart[:total_price]
-            %td
-      %footer
-        %dl.dl-horizontal
-          / TODO, customer message here
-          %dt= t 'orders.card.transport_info'
-          - if order.transport
-            %dd= order.transport.recipient_address
-            %dd= order.transport.recipient_name
-            %dd= order.transport.recipient_phone
-            %dd= order.transport.aasm.human_state
-          %dt= t 'orders.card.transaction_info'
-          - if order.payment
-            %dd= order.payment.aasm.human_state
+      .row
+        .col-md-4
+          %dl.dl-horizontal
+            %dt= t 'orders.card.recipient_info'
+            - if order.transport
+              %dd= Transport.human_attribute_name 'recipient_name'
+              %dd= order.transport.recipient_name
+              %dd= Transport.human_attribute_name 'recipient_address'
+              %dd= order.transport.recipient_address
+              %dd= Transport.human_attribute_name 'recipient_phone'
+              %dd= order.transport.recipient_phone
+
+            %dt= Order.human_attribute_name 'customer_message'
+            %dd= order.customer_message
+
+            %dt= t 'orders.card.payment_state'
+            - binding.pry
+            %dd= locale_state 'payment', order.payment.aasm_state
+            / TODO button to pay if not paid and action is not pay
+
+            %dt= t 'orders.card.transport_state'
+            %dd= locale_state 'transport', order.transport.aasm_state #TODO
+
+        .col-md-8
+          %table.table.table-hover
+            %tbody
+              - order.cart[:items].each do |i|
+                %tr
+                  - case i[:type]
+                  - when 'product'
+                    %td.cover
+                      .cover{style: "background-image: url(#{background_image_url i[:product].cover})"}
+                    %td.name= i[:product].name
+                    %td.price= to_sg_dollar i[:price]
+                    %td.other
+            %tfoot
+              %tr
+                %td
+                %td
+                %td.price= to_sg_dollar order.cart[:total_price]
+                %td
