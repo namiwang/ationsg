@@ -7,14 +7,13 @@
 
   ga('create', 'UA-50629091-1', 'ation.sg');
   ga('send', 'pageview');
-
 </script>
 <!-- GA END -->
 
 <% if controller_name.in? ['products'] %>
-  <%= javascript_include_tag controller_name, "data-turbolinks-track" => true %>
+  <%= javascript_include_tag controller_name %>
 <% end %>
 
 <% if controller_name.in? ['products'] %>
-  <%= javascript_include_tag 'img_slide', "data-turbolinks-track" => true %>
+  <%= javascript_include_tag 'img_slide' %>
 <% end %>
