@@ -60,6 +60,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_votable (0.9.0)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
@@ -269,6 +270,7 @@ PLATFORMS
 DEPENDENCIES
   aasm
   activeadmin!
+  acts_as_votable
   awesome_print
   bitters
   bootstrap-sass

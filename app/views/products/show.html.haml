@@ -11,8 +11,14 @@
               %a.img-slide.img-link{style: "background-image: url(#{background_image_url i.url})"}
         %nav.btns
           %li
-            %a.add-to-cart{data: {:product_id => @product.id}}
+            %a.product-add-to-cart{data: {product_id: @product.id}}
               %div
-                %span.glyphicon.glyphicon-shopping-cart
+                %i.fa.fa-shopping-cart
+          %li
+            %a.product-like{class: ('liked' if (user_signed_in? and current_user.liked? @product)), data: {product_id: @product.id, like_path: main_app.product_like_path(product_id: @product.id), unlike_path: main_app.product_unlike_path(product_id: @product.id)}}
+              %div
+                %i.fa.fa-heart-o
+                %i.fa.fa-heart
     .col-md-6
-      
+      %pre.product-description
+        = @product.description      

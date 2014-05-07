@@ -25,6 +25,11 @@ class MyController < ApplicationController
     @orders = current_user.orders    
   end
 
+  def liked
+    # TODO now only include liked products
+    @liked_products = current_user.get_up_voted Product
+  end
+
   private
 
   def user_params

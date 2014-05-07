@@ -4,6 +4,12 @@ $product-show-border-color: desaturate(darken($base-accent-color, 20), 30)
 
 // product-show
 .container.products.show .product-wrapper
+  & *
+    +user-select(none)
+  & a
+    text-decoration: none
+
+.container.products.show .product-wrapper
   width: 100%
   border: 4px solid $product-show-border-color
 
@@ -24,18 +30,44 @@ $product-show-border-color: desaturate(darken($base-accent-color, 20), 30)
       float: right
       border-left: 4px solid $product-show-border-color
 
-      a div
-        color: $product-show-border-color
-        background: #fff
-        +transition(color 0.2s ease-in-out, background-color 0.2s ease-in-out)
-
-        span.glyphicon
-          line-height: 48px
-          font-size: 24px
+      a
+        display: block
+        height: 100%
+        width: 100%
+        div
+          color: $product-show-border-color
+          background: #fff
+          height: 100%
           width: 100%
-          text-align: center
 
+          i.fa
+            line-height: 48px
+            font-size: 24px
+            width: 100%
+            text-align: center
+
+      a.product-add-to-cart div
+        +transition(color 0.2s ease-in-out, background-color 0.2s ease-in-out)
         &:hover
           background-color: $product-show-border-color
           color: #fff
 
+      a.product-like
+        div
+          overflow: hidden
+
+        &:hover
+          i.fa-heart-o
+            display: none
+
+        &.liked
+          i.fa-heart-o
+            display: none
+
+          &:hover
+            i.fa-heart-o
+              display: block
+
+.container.products.show pre.product-description
+  border: none
+  background-color: whitesmoke

@@ -71,7 +71,10 @@ Ationsg::Application.routes.draw do
   end
 
   # products
-  resources :products, only: [:show]
+  resources :products, only: [:show] do
+    get 'like' => 'products#like', as: :like
+    get 'unlike' => 'products#unlike', as: :unlike
+  end
 
   # categories
   resources :categories, only: [:show]
@@ -95,6 +98,7 @@ Ationsg::Application.routes.draw do
   get 'my/orders' => 'my#orders', as: :my_orders
   get 'my/addresses' => 'my#addresses', as: :my_addresses
   get 'my/payments' => 'my#payments', as: :my_payments
+  get 'my/liked' => 'my#liked', as: :my_liked
 
   # static pages & root
   get 'pages/home' => 'high_voltage/pages#show', id: 'home'

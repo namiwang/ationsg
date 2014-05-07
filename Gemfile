@@ -87,3 +87,5 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aasm'
 
 gem 'nested-hstore'
+
+gem 'acts_as_votable'

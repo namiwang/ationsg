@@ -14,6 +14,7 @@ zh-CN:
     my_addresses: 我的常用地址
     my_info: 我的个人信息
     my_payments: 我的支付信息
+    my_liked: 我的收藏
 
   products:
     show:

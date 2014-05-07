@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
   has_many :orders
 
+  # votable
+  acts_as_voter
+
   def apply_authentication(oauth_info)
    authentications.build(
      provider: oauth_info['provider'],
