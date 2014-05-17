@@ -5,7 +5,6 @@
 # = require navbar
 # = require cookies
 # = require cart
-# = require analytics
 
 $ ->
   $('.need-popover-init').popover()
