@@ -1,4 +1,5 @@
-source 'http://rubygems.org/'
+#source 'http://rubygems.org/'
+source 'https://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
@@ -78,7 +79,6 @@ gem 'figaro' # application.yml
 group :development do
   gem 'spring'
   gem 'pry'
-  gem 'pry-debugger'
   gem 'awesome_print'
 end
 
