@@ -35,8 +35,4 @@ $ ->
     save_to_cookie: ->
       Cookies.set('cart_items', JSON.stringify(@items))
 
-  root = exports ? this
-  root.Cart = new CART unless root.Cart
-
-  # TODO
-  # cart partial should not hide if mouse enter cart partial
+  window.Cart = new CART unless window.Cart
