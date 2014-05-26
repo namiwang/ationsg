@@ -5,17 +5,17 @@ $comment-color: $base-font-color
 $comment-background: lighten($base-accent-color, 15)
 $comment-detail-color: transparentize($comment-color, .5)
 $comment-image-vert-alignment: top
-$comment-border-color: desaturate(darken($base-accent-color, 20), 30)
+$comment-border-color: transparentize( desaturate(darken($base-accent-color, 20), 30), .5)
 
 .comments-show
   display: table
   width: 100%
   margin-bottom: 0.8em
   padding: 0.2em 1em
-  border-top: 1px solid transparentize($comment-border-color, .9)
+  border-top: 1px solid $comment-border-color
 
   &:last-child
-    border-bottom: 1px solid transparentize($comment-border-color, .9)
+    border-bottom: 1px solid $comment-border-color
 
   aside.product-cover
     display: table-cell
