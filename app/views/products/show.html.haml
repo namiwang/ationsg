@@ -19,6 +19,55 @@
               %div
                 %i.fa.fa-heart-o
                 %i.fa.fa-heart
+          %li
+            %a.product-share{data: {toggle: 'dropdown'}}
+              %div
+                %i.fa.fa-share-alt
+            .product-share-dropdown.dropdown-menu
+              .share-buttons
+                %button
+                  %i.fa.fa-pinterest
+                  Pinterest
+                %button
+                  %i.fa.fa-pinterest
+                  Pinterest
+                %button
+                  %i.fa.fa-pinterest
+                  Pinterest
+
     .col-md-6
       %pre.product-description
-        = @product.description      
+        = @product.description
+
+  / comments
+  .row
+    .col-md-12
+      .container.comments
+        .row
+          .col-md-6.left-all-comments
+            .section-header
+              %h5= t 'products.show.comments.all'
+            .comments-list
+              - @comments.each do |c|
+                - if not c.new_record?
+                  = render partial: 'comments/show', locals: {comment: c}
+          .col-md-6.right-my-comments
+            .section-header
+              %h5= t 'products.show.comments.my'
+            - if user_signed_in?
+              - if @current_user_comments.empty?
+                .nothing-to-show
+                  = t 'products.show.comments.have_not_published_any'
+              - else
+                .comments-list
+                  - @current_user_comments.each do |c|
+                    = render partial: 'comments/show', locals: {comment: c}
+
+              .new-comment
+                .section-header
+                  %h5 New Comment
+                = render partial: 'comments/new'
+            - else
+              .nothing-to-show
+                = t 'products.show.comments.have_not_signed_in'
+

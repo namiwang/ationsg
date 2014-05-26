@@ -3,6 +3,13 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:like, :unlike]
 
   def show
+    @comments = @product.comments
+    # TODO dont load all comments at first, pagination maybe
+
+    if user_signed_in?
+      @current_user_comments = @product.comments.where(user: current_user)
+    end
+    @new_comment = @product.comments.new
   end
 
   def like

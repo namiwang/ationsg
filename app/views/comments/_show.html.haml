@@ -1,0 +1,27 @@
+- comment_token = SecureRandom.hex(10)
+.comments-show
+  .content
+    %header.author
+      = User.model_name.human
+      = comment.user.name
+      = t 'common.time.created_at'
+      = t 'common.time.ago', time: ( time_ago_in_words (Time.now - comment.updated_at).seconds.from_now )
+      
+    %p
+      = comment.comment
+
+    %ul.images.list-unstyled.list-inline
+      - comment.images.each_with_index do |image, index|
+        %li
+          %a.image{style: "background-image: url(#{background_image_url image.url})", data: {toggle: 'modal', target: "#comment-#{comment_token}-image-#{index}"}}
+
+          .comment-image.modal.fade{id: "comment-#{comment_token}-image-#{index}", tabindex: '-1'}
+            .modal-dialog.modal-lg
+              .modal-content
+                = image_tag image.url
+
+    %footer.detail
+      %ul.list-inline
+        %li
+          %i.fa.fa-heart
+          10

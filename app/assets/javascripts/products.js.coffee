@@ -1,6 +1,6 @@
 $ ->
   # like btn
-  $('a.product-like').click ->
+  $('.container.products.show a.product-like').click ->
     this_btn = $ @
     if this_btn.hasClass 'liked'
       this_btn.removeClass('liked')
@@ -16,11 +16,13 @@ $ ->
       }
 
   # add to cart
-  $('a.product-add-to-cart').click ->
+  $('.container.products.show a.product-add-to-cart').click ->
     item = {
       type: 'product',
       product: $(@).data('product-id')
     }
     Cart.add(item)
 
-  # add to cart
+  # share
+  $('.container.products.show a.product-share').click ->
+    

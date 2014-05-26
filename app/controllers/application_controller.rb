@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   include CartModule
 
   before_action :cart_init
-  before_action :flash_clear
 
   def cart_init
     @cart = Cart.new.initialize_from_cookie cookies[:cart_items]
@@ -20,9 +19,5 @@ class ApplicationController < ActionController::Base
   def cart_clear
     @cart.clear
     cart_save_to_cookie
-  end
-
-  def flash_clear
-    flash.clear
   end
 end

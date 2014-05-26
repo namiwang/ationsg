@@ -76,6 +76,8 @@ Ationsg::Application.routes.draw do
     get 'unlike' => 'products#unlike', as: :unlike
   end
 
+  resources :comments, only: [:show, :new, :create]
+
   # categories
   resources :categories, only: [:show]
 

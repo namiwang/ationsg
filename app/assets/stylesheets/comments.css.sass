@@ -1,0 +1,99 @@
+$comment-gutter: 1.4em
+$comment-image-padding: .7em
+$comment-image-width: 4em
+$comment-color: $base-font-color
+$comment-background: lighten($base-accent-color, 15)
+$comment-detail-color: transparentize($comment-color, .5)
+$comment-image-vert-alignment: top
+$comment-border-color: desaturate(darken($base-accent-color, 20), 30)
+
+.comments-show
+  display: table
+  width: 100%
+  margin-bottom: 0.8em
+  padding: 0.2em 1em
+  border-top: 1px solid transparentize($comment-border-color, .9)
+
+  &:last-child
+    border-bottom: 1px solid transparentize($comment-border-color, .9)
+
+  aside.product-cover
+    display: table-cell
+    vertical-align: $comment-image-vert-alignment
+
+    padding-right: $comment-gutter
+
+    img
+      width: $comment-image-width
+      height: auto
+      border-radius: $base-border-radius
+      padding: $comment-image-padding
+      background: $comment-background
+      display: block
+      max-width: none
+
+  .content
+    display: table
+    vertical-align: $comment-image-vert-alignment
+    width: 100%
+
+    header.author
+      font-size: .9em
+      color: $comment-detail-color      
+
+    p
+      margin-bottom: .5em
+
+    ul.images
+      display: block
+
+      li
+        display: block
+        height: 64px
+        width: 64px
+        float: left
+        margin: 0.7em
+
+        a.image
+          display: block
+          height: 100%
+          width: 100%
+          +background_img_contain
+          cursor: pointer
+          cursor: zoom-in
+          cursor: -webkit-zoom-in
+          cursor: -moz-zoom-in
+
+        .modal.comment-image
+          .modal-content
+            border-radius: 0
+            text-align: center
+            padding: 2em
+
+            img            
+
+    footer.detail
+      clear: both
+      font-size: .9em
+      color: $comment-detail-color
+
+      ul
+        margin-bottom: 0
+
+// new
+form.comment.new
+
+  .field-for-input-file
+    overflow: hidden
+    display: block
+    width: 100%
+    height: 100%
+    position: absolute
+    opacity: 0
+    font-size: 30em
+    left: 0px
+    top: 0px
+    cursor: pointer
+
+    input[type="file"]
+      cursor: pointer

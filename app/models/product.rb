@@ -7,6 +7,9 @@ class Product < ActiveRecord::Base
   # votable
   acts_as_votable
 
+  # commentable
+  acts_as_commentable
+
   def cover
     images.first ? images.first.url : ActionController::Base.helpers.image_path('missing.png')
   end

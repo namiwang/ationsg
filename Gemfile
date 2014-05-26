@@ -1,5 +1,5 @@
-#source 'http://rubygems.org/'
-source 'https://ruby.taobao.org'
+source 'http://rubygems.org/'
+# source 'https://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
@@ -89,3 +89,5 @@ gem 'aasm'
 gem 'nested-hstore'
 
 gem 'acts_as_votable'
+
+gem 'acts_as_commentable'
