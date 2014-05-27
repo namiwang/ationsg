@@ -26,9 +26,9 @@
             %dd= order.customer_message
 
             %dt= t 'orders.card.payment_state'
-            - binding.pry
-            %dd= locale_state 'payment', order.payment.aasm_state
-            / TODO button to pay if not paid and action is not pay
+            %dd= locale_state 'payment', order.payments.last.aasm_state
+            / TODO currently only handle situations where one order got only one payment
+            / TODO button to pay if not paid and action is not pay, or use a var to control wheater to show the button
 
             %dt= t 'orders.card.transport_state'
             %dd= locale_state 'transport', order.transport.aasm_state #TODO

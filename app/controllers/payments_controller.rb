@@ -6,6 +6,7 @@ class PaymentsController < ApplicationController
   def new
     case params[:method]
     when 'paypal'
+      binding.pry
       paypal_params = {
         business: ENV['PAYPAL_ACCOUNT'],
         cmd: '_cart',

@@ -78,6 +78,7 @@ group :development do
   gem 'spring'
   gem 'pry'
   gem 'awesome_print'
+  gem 'better_errors'
 end
 
 gem 'paperclip', github: 'thoughtbot/paperclip'

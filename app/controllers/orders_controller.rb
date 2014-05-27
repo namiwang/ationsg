@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
     @order.user = current_user
     # transport
     # payment
-    @order.build_payment
+    order.payments.build(order: @order)
     # cart
     @order.cart = @cart.save_to_order_version
 
@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
   end
 
   def pay
-    # check order payment state
+    # TODO check order payment state
   end
 
   def index

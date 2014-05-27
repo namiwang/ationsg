@@ -66,6 +66,9 @@ GEM
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
     bcrypt (3.1.7)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     bitters (0.9.3)
       bourbon (>= 3.1)
       sass (>= 3.2)
@@ -262,6 +265,7 @@ DEPENDENCIES
   acts_as_commentable
   acts_as_votable
   awesome_print
+  better_errors
   bitters
   bootstrap-sass
   bourbon

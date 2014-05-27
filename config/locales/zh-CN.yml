@@ -65,6 +65,7 @@ zh-CN:
       payment_info: 支付信息
 
     pay:
+      confirm_order_info: 请确认订单信息
       select_pay_method: 请选择支付方式
 
 # --- active record
@@ -87,6 +88,8 @@ zh-CN:
         recipient_name: 收件人姓名
         recipient_phone: 收件人电话
         recipient_address: 收件人地址
+        states:
+          initialized: 递送尚未开始
       payment:
         method: TODO
         states:
@@ -95,3 +98,4 @@ zh-CN:
           cancled: 支付已取消
           error: 支付遇到问题
           success: 支付成功
+
