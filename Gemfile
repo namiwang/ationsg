@@ -57,8 +57,6 @@ gem 'bitters'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 
-gem 'high_voltage'
-
 gem 'devise'
 gem 'devise-i18n'
 gem 'omniauth'

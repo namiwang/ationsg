@@ -57,7 +57,7 @@ ActiveAdmin.register Product do
     column :name
     column :price
     column :category
-    default_actions
+    actions
   end
 
   # form do |f|

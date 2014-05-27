@@ -17,6 +17,12 @@ zh-CN:
     my_payments: 我的支付信息
     my_liked: 我的收藏
 
+  pages:
+    about_us: 关于我们
+    contact_us: 联系我们
+    follow_us: 关注我们
+    help_center: 帮助中心
+
   products:
     show:
       add_to_cart: 加入购物车
@@ -67,6 +73,7 @@ zh-CN:
       user: 用户
       order: 订单
       payment: 交易
+      page: 页面
     attributes:
       user:
         email: 邮箱

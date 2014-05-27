@@ -103,7 +103,7 @@ Ationsg::Application.routes.draw do
   get 'my/liked' => 'my#liked', as: :my_liked
 
   # static pages & root
-  get 'pages/home' => 'high_voltage/pages#show', id: 'home'
-  root 'high_voltage/pages#show', id: 'home'
+  resources :pages, only: [:show]
+  root 'pages#show', id: 'home'
 
 end

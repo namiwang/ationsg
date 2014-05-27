@@ -4,24 +4,44 @@
   .links
     %ul
       %li
-        %h3 Content
+        %h3
+          %i.fa.fa-fw.fa-angle-down
+          = t 'pages.about_us'
       -['about_us', 'contact_us'].each do |p|
         %li
-          =link_to t("pages.#{p}"), page_path(p)
+          =link_to page_path(p) do
+            %i.fa.fa-fw.fa-angle-right
+            = t("pages.#{p}")
     %ul
       %li
-        %h3 TODO t follow us
+        %h3
+          %i.fa.fa-fw.fa-angle-down
+          = t 'pages.follow_us'
       %li
         = link_to 'TODO' do
-          %i.fa.fa-twitter Twitter
-      %li= link_to 'a', 'a'
-      %li= link_to 'a', 'a'
+          %i.fa.fa-fw.fa-twitter
+          Twitter
+      %li
+        = link_to 'TODO' do
+          %i.fa.fa-fw.fa-facebook
+          Facebook
+      %li
+        = link_to 'TODO' do
+          %i.fa.fa-fw.fa-google-plus
+          Google+
     %ul
-      %li= link_to 'a', 'a'
-      %li= link_to 'a', 'a'
-      %li= link_to 'a', 'a'
+      %li
+        %h3
+          %i.fa.fa-fw.fa-angle-down
+          = t 'pages.help_center'
+      %li
+        = link_to page_path('help_center') do
+          %i.fa.fa-fw.fa-question
+          = t 'pages.help_center'
+
   %hr
     %p Disclaimer area lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nostrum repudiandae saepe.
+    %br
     %p Copyright Ation.sg 2014
 
 = render 'shared/scripts'
