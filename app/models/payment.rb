@@ -1,6 +1,6 @@
 class Payment < ActiveRecord::Base
   # associations
-  belongs_to :order, dependent: :destroy
+  belongs_to :order
 
   # validations
   validates_presence_of :order

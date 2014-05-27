@@ -1,18 +1,17 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_order, only: [:new, :create]
-  before_action :chk_order_ownership, only: [:new, :create]
+  before_action :get_order, only: [:create]
+  before_action :chk_order_ownership, only: [:create]
 
-  def new
+  def create
     case params[:method]
     when 'paypal'
-      binding.pry
       paypal_params = {
         business: ENV['PAYPAL_ACCOUNT'],
         cmd: '_cart',
         upload: 1,
         currency_code: 'SGD',
-        :return => 'TODO',
+        :return => url_for(controller: 'my', action: 'orders'),
         :invoice => "ORDER#{@order.id}PAYMENT"#TODO payment id? but payment may be empty
       }
       @order.cart[:items].each_with_index do |item ,index|
@@ -20,24 +19,30 @@ class PaymentsController < ApplicationController
         case item[:type]
         when 'product'
           item_params_to_merge = {
-            "amount_#{index + 1}" => item[:price],# TODO convert to real number
+            "amount_#{index + 1}" => view_context.to_real_amount(item[:price]),# TODO convert to real number
             "item_name_#{index + 1}" => item[:product].name,
           }
         end
         paypal_params.merge! item_params_to_merge
       end
-      paypal_url = ENV['PAYPAL_URL'] + paypal_params.to_query
-      redirect_to paypal_url
+
+      # TODO check order self
+      # TODO check order state
+      # TODO check payment self
+      # TODO check payment state
+
+      new_payment = @order.payments.build({method: 'paypal', detail: paypal_params.to_json})
+      if new_payment.valid?
+        new_payment.save!
+
+        paypal_url = ENV['PAYPAL_URL'] + paypal_params.to_query
+        redirect_to paypal_url
+      else
+        redirect_to root_path
+      end
     else
       redirect_to root_path
     end
-  end
-
-  def create
-    # check order self
-    # check order state
-    # check payment self
-    # check payment state
   end
 
   private

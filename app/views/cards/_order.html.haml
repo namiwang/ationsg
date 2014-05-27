@@ -26,7 +26,11 @@
             %dd= order.customer_message
 
             %dt= t 'orders.card.payment_state'
-            %dd= locale_state 'payment', order.payments.last.aasm_state
+            %dd
+              - if order.payments.empty?
+                = locale_state 'payment', 'initialized'
+              - else
+                = locale_state 'payment', order.payments.last.aasm_state
             / TODO currently only handle situations where one order got only one payment
             / TODO button to pay if not paid and action is not pay, or use a var to control wheater to show the button
 

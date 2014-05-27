@@ -90,8 +90,8 @@ Ationsg::Application.routes.draw do
   get 'orders/:id/pay' => 'orders#pay', as: :pay_order
 
   # payments
-  resources :payments, only: [:create]
-  get 'payments/new/order/:order_id/method/:method' => 'payments#new', as: :new_payment
+  # resources :payments, only: [:create]
+  get 'payments/new/order/:order_id/method/:method' => 'payments#create', as: :create_payment
 
   # my
   get 'my' => 'my#info'

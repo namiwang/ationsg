@@ -7,5 +7,5 @@
     .page-header
       %h5= t 'orders.pay.select_pay_method'
     %pre.well
-      = link_to new_payment_path(order_id: @order, method: 'paypal') do
+      = link_to create_payment_path(order_id: @order, method: 'paypal') do
         = image_tag 'https://www.paypalobjects.com/webstatic/en_US/btn/btn_checkout_pp_142x27.png'
