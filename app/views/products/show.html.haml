@@ -24,16 +24,13 @@
               %div
                 %i.fa.fa-share-alt
             .product-share-dropdown.dropdown-menu
-              .share-buttons
-                %button
-                  %i.fa.fa-pinterest
-                  Pinterest
-                %button
-                  %i.fa.fa-pinterest
-                  Pinterest
-                %button
-                  %i.fa.fa-pinterest
-                  Pinterest
+              .share-links
+                = link_to product_share_url(@product, 'googleplus'), target: '_blank', onclick: popup_script do
+                  %i.fa.fa-google-plus
+                  Google Plus
+                = link_to product_share_url(@product, 'facebook'), target: '_blank', onclick: popup_script do
+                  %i.fa.fa-facebook
+                  Facebook
 
     .col-md-6
       %pre.product-description

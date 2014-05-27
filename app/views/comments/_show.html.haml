@@ -21,7 +21,15 @@
                 = image_tag image.url
 
     %footer.detail
-      %ul.list-inline
-        %li
-          %i.fa.fa-heart
-          10
+      .element.like
+        %i.fa.fa-heart
+        10
+      .element.share
+        %a
+          %i.fa.fa-share-alt
+        .links
+          / TODO currently share product instead of comment
+          = link_to product_share_url(@product, 'googleplus'), target: '_blank', onclick: popup_script do
+            %i.fa.fa-google-plus
+          = link_to product_share_url(@product, 'facebook'), target: '_blank', onclick: popup_script do
+            %i.fa.fa-facebook
