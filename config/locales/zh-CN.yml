@@ -98,4 +98,6 @@ zh-CN:
           cancled: 支付已取消
           error: 支付遇到问题
           success: 支付成功
+      comment:
+        comment: 评论内容
 
