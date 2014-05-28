@@ -3,9 +3,10 @@
     = link_to t('nav.my_orders'), main_app.my_orders_path
   %li{class: ('active' if action_name == 'info')}
     = link_to t('nav.my_info'), main_app.my_info_path
-  %li{class: ('active' if action_name == 'addresses')}
-    = link_to t('nav.my_addresses'), main_app.my_addresses_path
-  %li{class: ('active' if action_name == 'payments')}
-    = link_to t('nav.my_payments'), main_app.my_payments_path
+  / TODO
+  / %li{class: ('active' if action_name == 'addresses')}
+  /   = link_to t('nav.my_addresses'), main_app.my_addresses_path
+  / %li{class: ('active' if action_name == 'payments')}
+  /   = link_to t('nav.my_payments'), main_app.my_payments_path
   %li{class: ('active' if action_name == 'liked')}
     = link_to t('nav.my_liked'), main_app.my_liked_path
