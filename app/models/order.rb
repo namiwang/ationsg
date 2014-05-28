@@ -17,11 +17,6 @@ class Order < ActiveRecord::Base
 
   aasm do
     state :initialized, :initial => true
-    state :created
-
-    event :create do
-      transitions from: :initialized, to: :created
-    end
   end
 
   # cart, nested hstore
