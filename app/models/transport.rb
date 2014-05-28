@@ -10,15 +10,20 @@ class Transport < ActiveRecord::Base
 
   aasm do
     state :initialized, :initial => true
-    state :created
-    state :shipped
+    state :confirmed
+    state :shipping
+    state :delivered
 
-    event :create do
-      transitions from: :initialized, to: :created
+    event :confirm do
+      transitions from: :initialized, to: :confirmed
     end
 
     event :ship do
-      transitions from: :created, to: :shipped
+      transitions from: :confirmed, to: :shipping
+    end
+
+    event :receive do
+      transitions from: :shipping, to: :delivered
     end
   end
 end

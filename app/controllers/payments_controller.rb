@@ -4,6 +4,13 @@ class PaymentsController < ApplicationController
   before_action :chk_order_ownership, only: [:create]
 
   def create
+
+    # TODO check payment self
+    # TODO check payment state
+
+    # TODO check order state
+    redirect_to root_path if not @order.may_create_new_payment?
+
     case params[:method]
     when 'paypal'
       paypal_params = {
@@ -26,14 +33,10 @@ class PaymentsController < ApplicationController
         paypal_params.merge! item_params_to_merge
       end
 
-      # TODO check order self
-      # TODO check order state
-      # TODO check payment self
-      # TODO check payment state
-
       new_payment = @order.payments.build({method: 'paypal', detail: paypal_params.to_json})
       if new_payment.valid?
         new_payment.save!
+        new_payment.create # state machine
 
         paypal_url = ENV['PAYPAL_URL'] + paypal_params.to_query
         redirect_to paypal_url
@@ -41,6 +44,7 @@ class PaymentsController < ApplicationController
         redirect_to root_path
       end
     else
+      # invalid payment method
       redirect_to root_path
     end
   end
