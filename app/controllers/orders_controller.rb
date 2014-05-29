@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
     @order.user = current_user
     # transport
     # payment
-    # order.payments.build(order: @order)
+    @order.payments.build(order: @order)
     # cart
     @order.cart = @cart.save_to_order_version
 
@@ -23,7 +23,6 @@ class OrdersController < ApplicationController
       render 'new'
     else
       @order.save!
-      @order.create
       # TODO
       # 2. order.transport.state -> created
       cart_clear

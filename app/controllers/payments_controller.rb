@@ -7,9 +7,9 @@ class PaymentsController < ApplicationController
 
     # TODO check payment self
     # TODO check payment state
-
     # TODO check order state
-    redirect_to root_path if not @order.may_create_new_payment?
+    # TODO check if may create new payment
+    # redirect_to root_path if not @order.may_create_new_payment?
 
     case params[:method]
     when 'paypal'
@@ -33,10 +33,12 @@ class PaymentsController < ApplicationController
         paypal_params.merge! item_params_to_merge
       end
 
-      new_payment = @order.payments.build({method: 'paypal', detail: paypal_params.to_json})
+      # new_payment = @order.payments.build({method: 'paypal', detail: paypal_params.to_json})
+      new_payment = @order.payments.last
+      new_payment.update({method: 'paypal', detail: paypal_params.to_json})
       if new_payment.valid?
+        new_payment.pay # state machine
         new_payment.save!
-        new_payment.create # state machine
 
         paypal_url = ENV['PAYPAL_URL'] + paypal_params.to_query
         redirect_to paypal_url

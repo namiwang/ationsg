@@ -7,3 +7,6 @@
       %h1= cart_item[:product].name
       / %p= cart_item[:product].description.truncate(100)
       %p.detail= to_sg_dollar cart_item[:product].price
+    - if defined? show_remove_btn and show_remove_btn
+      .remove
+        %i.fa.fa-minus{data: {index: index}}

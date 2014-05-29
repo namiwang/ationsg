@@ -12,12 +12,11 @@ class Payment < ActiveRecord::Base
 
   aasm do
     state :initialized, :initial => true
-    state :created
+    state :paying
 
-    event :create do
-      transitions from: :initialized, to: :created
+    event :pay do
+      transitions from: :initialized, to: :paying
     end
   end
 
-  
 end

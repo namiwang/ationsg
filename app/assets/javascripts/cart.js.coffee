@@ -11,6 +11,10 @@ $ ->
       @items.push item
       @refresh()
 
+    remove: (index) ->
+      @items.splice index, 1
+      @refresh()
+
     size: ->
       @items.length
 
@@ -36,3 +40,8 @@ $ ->
       Cookies.set('cart_items', JSON.stringify(@items))
 
   window.Cart = new CART unless window.Cart
+
+  # cart-show
+  $('.cart-item-card .remove i.fa-minus').click ->
+    Cart.remove $(@).data('index')
+    $(@).closest('.cart-item-card').remove()

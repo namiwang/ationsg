@@ -46,6 +46,7 @@ zh-CN:
     show:
       checkout: 结算
       total_price_is: 总计：
+      cart_is_empty: 购物车是空的
 
   orders:
     new:
@@ -113,8 +114,8 @@ zh-CN:
       payment:
         method: TODO
         states:
-          initialized: 尚未选择支付方式
-          craeted: 已经选择支付方式，支付尚未完成
+          initialized: 尚未支付
+          method_selected: 支付进行中
           cancled: 支付已取消
           error: 支付遇到问题
           success: 支付成功

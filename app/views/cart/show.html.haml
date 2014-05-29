@@ -2,7 +2,8 @@
   .row
     .col-md-9
       %ul.media-list
-        = render partial: 'shared/cards/cart_item', collection: @cart.items
+        - @cart.items.each_with_index do |item, index|
+          = render partial: 'shared/cards/cart_item', locals: {cart_item: item, index: index, show_remove_btn: true}
 
     .col-md-3
       / TODO affix
