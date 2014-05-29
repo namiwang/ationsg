@@ -1,6 +1,6 @@
 module ShareHelper
   def product_share_url(product, sns_type)
-    product_share_link = product_url @product
+    product_share_link = product_url product
     case sns_type
     when 'googleplus'
       "https://plus.google.com/share?url=" + product_share_link

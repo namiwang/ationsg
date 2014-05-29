@@ -20,5 +20,9 @@ class Comment < ActiveRecord::Base
   # validation
   validates :comment, length: { in: 20..200 }
   validates :user, presence: true
+
+  def product
+    (Object.const_get commentable_type).find(commentable_id)
+  end
   
 end

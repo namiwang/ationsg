@@ -30,6 +30,10 @@ class MyController < ApplicationController
     @liked_products = current_user.get_up_voted Product
   end
 
+  def comments
+    @comments = Product.find_comments_by_user current_user
+  end
+
   private
 
   def user_params

@@ -1,5 +1,10 @@
 - comment_token = SecureRandom.hex(10)
+- product = comment.product
 .comments-show
+  - if (defined? show_product_cover) and show_product_cover
+    %aside.product-cover
+      %a{style: "background-image: url(#{background_image_url product.cover})", href: product_path(product)}
+
   .content
     %header.author
       = User.model_name.human
@@ -29,7 +34,7 @@
           %i.fa.fa-fw.fa-share-alt
         .links
           / TODO currently share product instead of comment
-          = link_to product_share_url(@product, 'googleplus'), target: '_blank', onclick: popup_script do
+          = link_to product_share_url(product, 'googleplus'), target: '_blank', onclick: popup_script do
             %i.fa.fa-fw.fa-google-plus
-          = link_to product_share_url(@product, 'facebook'), target: '_blank', onclick: popup_script do
+          = link_to product_share_url(product, 'facebook'), target: '_blank', onclick: popup_script do
             %i.fa.fa-fw.fa-facebook

@@ -1,42 +1,30 @@
-$comment-gutter: 1.4em
-$comment-image-padding: .7em
-$comment-image-width: 4em
 $comment-color: $base-font-color
-$comment-background: lighten($base-accent-color, 15)
 $comment-detail-color: transparentize($comment-color, .5)
-$comment-image-vert-alignment: top
 $comment-border-color: transparentize( desaturate(darken($base-accent-color, 20), 30), .5)
 
 .comments-show
-  display: table
-  width: 100%
   margin-bottom: 0.8em
   padding: 0.2em 1em
   border-top: 1px solid $comment-border-color
+  display: table
+  width: 100%
+  +outer-container
 
   &:last-child
     border-bottom: 1px solid $comment-border-color
 
   aside.product-cover
-    display: table-cell
-    vertical-align: $comment-image-vert-alignment
-
-    padding-right: $comment-gutter
-
-    img
-      width: $comment-image-width
-      height: auto
-      border-radius: $base-border-radius
-      padding: $comment-image-padding
-      background: $comment-background
+    +span-columns(2)
+    padding-top: 2em
+    a
+      +background_img_contain
       display: block
-      max-width: none
+      width: 100%
+      height: 5em
+      cursor: pointer
 
   .content
-    display: table
-    vertical-align: $comment-image-vert-alignment
-    width: 100%
-
+    +span-columns(10)
     header.author
       font-size: .9em
       color: $comment-detail-color
