@@ -1,7 +1,7 @@
 .container.orders.pay
   .page-header
     %h5= t 'orders.pay.confirm_order_info'
-  = render partial: 'cards/order', object: @order, locals: {collapse_in: true}
+  = render partial: 'shared/cards/order', object: @order, locals: {collapse_in: true}
   %hr
   .choose-pay-method
     .page-header

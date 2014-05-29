@@ -9,7 +9,7 @@
         .cbp_tmicon
           %i.fa.fa-shopping-cart
         .cbp_tmlabel
-          = render partial: 'cards/cart_item', collection: @cart.items
+          = render partial: 'shared/cards/cart_item', collection: @cart.items
           = t 'cart.show.total_price_is'
           = to_sg_dollar @cart.total_price
       %li

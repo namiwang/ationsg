@@ -2,4 +2,4 @@
   .row.items
     - @category.products.all.each do |p|
       .col-md-3.item
-        = render partial: 'cards/product', object: p
+        = render partial: 'shared/cards/product', object: p

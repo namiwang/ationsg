@@ -11,7 +11,7 @@
   .panel-collapse.collapse{id: "order-card-#{order_token}", class: ('in' if collapse_in)}
     .panel-body
       .row
-        .col-md-4
+        .col-md-5
           %dl.dl-horizontal
             %dt= t 'orders.card.recipient_info'
             - if order.transport
@@ -37,7 +37,7 @@
             %dt= t 'orders.card.transport_state'
             %dd= locale_state 'transport', order.transport.aasm_state #TODO
 
-        .col-md-8
+        .col-md-7
           %table.table.table-hover
             %tbody
               - order.cart[:items].each do |i|

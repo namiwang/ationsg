@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   # associations
   has_many :authentications, dependent: :destroy
   has_many :orders
+  has_many :cards
 
   # votable
   acts_as_voter
@@ -20,6 +21,11 @@ class User < ActiveRecord::Base
      uid: oauth_info['uid']
    )
    self.save!
+  end
+
+  # cards and balance
+  def balance
+    cards.empty? ? 0 : cards.first.balance
   end
 
 end

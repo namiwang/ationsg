@@ -9,11 +9,15 @@
     .card-content
       = simple_format product.description.truncate(140)
     .card-stats
-      %ul
-        %li
+      %ul.list-unstyled.list-inline
+        %li.price
+          = to_sg_dollar product.price
+        %li.likes
           = product.get_likes.size
-          %span Likes
-        %li
-          / TODO
-          298
-          %span Sold
+          %span
+            %i.fa.fa-heart
+        %li.comments
+          = product.comments.size
+          %span
+            %i.fa.fa-comments-o
+

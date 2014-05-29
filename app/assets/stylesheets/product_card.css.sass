@@ -78,26 +78,23 @@ div.product-card
     line-height: 1.5em
 
   .card-stats
-    padding: $base-line-height / 2 $gutter / 2
+    padding: $base-line-height / 2 $gutter / 2 $base-line-height / 5
     overflow: auto
-    ul li
-      display: inline
-      color: $card-stats-color
-      font-weight: 800
-      font-size: 1.2em
-      float: left
-      border-right: 1px solid transparentize($base-font-color, 0.8)
-      line-height: 1.1em
-      padding: 0 .7em 0 .7em
-      &:first-child
-        padding-left: 0
-      &:last-child
-        border-right: 0
-      span
-        color: $base-font-color
-        font-size: .7em
-        display: block
-        font-weight: normal
+    ul
+      float: right
+      li
+        color: $card-stats-color
+        border-right: 1px solid transparentize($base-font-color, 0.8)
+        line-height: 1.1em
+        padding: 0 .7em 0 .7em
+        &:first-child
+          padding-left: 0
+        &:last-child
+          border-right: 0
+        &.price
+          font-weight: 800
+          font-size: 1.2em
+
   &:hover
     background-color: $card-hover-background
     .card-image img

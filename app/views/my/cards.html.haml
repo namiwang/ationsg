@@ -1,0 +1,6 @@
+.my-cards
+  - if current_user.cards.empty?
+    .nothing-to-show
+      TODO NO CARDS
+  - else
+    = render partial: 'cards/show', locals: {card: current_user.cards.first}

@@ -17,7 +17,7 @@ zh-CN:
     my_payments: 我的支付信息
     my_liked: 我的收藏
     my_comments: 我的评论
-
+    my_cards: 我的储值卡
   pages:
     about_us: 关于我们
     contact_us: 联系我们
@@ -80,6 +80,7 @@ zh-CN:
       payment: 交易
       transport: 递送
       page: 页面
+      card: 储值卡
     attributes:
       user:
         email: 邮箱
@@ -119,4 +120,7 @@ zh-CN:
           success: 支付成功
       comment:
         comment: 评论内容
+      card:
+        id: 编号
+        balance: 余额
 

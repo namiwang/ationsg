@@ -1,0 +1,25 @@
+// my-cards
+.my-cards
+  .nothing-to-show
+    width: 100%
+    height: 100%
+    text-align: center
+    padding: 1em
+    border: dashed lightgrey
+
+// cards-show
+.card-show.item
+  +outer-container
+  margin-top: 2em
+
+  aside
+    +span-columns(2)
+    margin-top: 1em
+    border-right: solid 1px whitesmoke
+    .avatar
+      text-align: center
+      font-size: 3em
+      color: silver
+
+  .content
+    +span-columns(10)

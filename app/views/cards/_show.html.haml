@@ -1,0 +1,16 @@
+.card-show.item
+  %aside
+    .avatar
+      %i.fa.fa-credit-card      
+  .content
+    %form.form-horizontal
+      .form-group
+        %label.col-sm-2.control-label
+          = Card.human_attribute_name 'id'
+        .col-sm-10
+          %p.form-control-static= card.id
+      .form-group
+        %label.col-sm-2.control-label
+          = Card.human_attribute_name 'balance'
+        .col-sm-10
+          %p.form-control-static= to_sg_dollar card.balance
