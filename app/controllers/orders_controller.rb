@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(transport_attributes: [:recipient_name, :recipient_phone, :recipient_address])
+    params.require(:order).permit(:customer_message, transport_attributes: [:recipient_name, :recipient_phone, :recipient_address])
   end
 
   def get_order

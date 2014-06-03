@@ -33,8 +33,8 @@
             - if payment.may_pay? and action_name != 'pay'
               %dd= link_to (t 'orders.new.pay'), (pay_order_path order), class: 'btn btn-default btn-sm'
             - if payment.aasm_state != 'initialized'
-              %dt= Payment.human_attribute_name 'method'
-              %dd= t "payments.method.#{payment.method}"
+              %dt= Payment.human_attribute_name 'pay_method'
+              %dd= t "payments.method.#{payment.pay_method}"
 
             %dt= t 'orders.card.transport_state'
             %dd= locale_state 'transport', order.transport.aasm_state #TODO

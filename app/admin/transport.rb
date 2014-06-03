@@ -60,7 +60,7 @@ ActiveAdmin.register Transport do
     member_action event.to_s do
       transport = Transport.find(params[:id])
       transport.send "#{event.to_s}!" if transport.send "may_#{event.to_s}?"
-      redirect_to admin_transport_path(transport)
+      redirect_to admin_transports_path
     end
   end
 

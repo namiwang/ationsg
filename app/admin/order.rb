@@ -36,7 +36,6 @@ ActiveAdmin.register Order do
     end
   end
 
-  
   # index
   index do
     column :id

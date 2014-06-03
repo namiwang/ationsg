@@ -128,14 +128,18 @@ zh-CN:
           ship: 开始递送
           receive: 已送达
       payment:
-        method: 支付方式
+        pay_method: 支付方式
         order: 所属订单
+        # state machine
+        state: 状态
         states:
           initialized: 尚未支付
           paying: 支付进行中
           cancled: 支付已取消
           error: 支付遇到问题
           success: 支付成功
+        transitions:
+          receive: 收讫
       comment:
         comment: 评论内容
       card:

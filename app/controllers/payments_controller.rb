@@ -34,14 +34,14 @@ class PaymentsController < ApplicationController
         paypal_params.merge! item_params_to_merge
       end
 
-      new_payment.update({method: 'paypal', detail: paypal_params.to_json})
+      new_payment.update({pay_method: 'paypal', detail: paypal_params.to_json})
       return redirect_to root_path unless new_payment.valid?
       new_payment.pay! # state machine
 
       paypal_url = ENV['PAYPAL_URL'] + paypal_params.to_query
       return redirect_to paypal_url
     when 'card'
-      new_payment.update({method: 'card'})
+      new_payment.update({pay_method: 'card'})
 
       return redirect_to root_path unless new_payment.valid?
 
