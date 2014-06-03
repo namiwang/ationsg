@@ -18,6 +18,7 @@ zh-CN:
     my_liked: 我的收藏
     my_comments: 我的评论
     my_cards: 我的储值卡
+
   pages:
     about_us: 关于我们
     contact_us: 联系我们
@@ -69,6 +70,21 @@ zh-CN:
     pay:
       confirm_order_info: 请确认订单信息
       select_pay_method: 请选择支付方式
+      by_paypal: 使用 Paypal 支付
+      by_card: 使用储值卡支付
+      current_card_balance: 您目前可使用的储值卡余额为
+
+  payments:
+    method:
+      paypal: Paypal
+      card: 储值卡
+    not_sufficient_funds: 余额不足
+    success: 支付成功
+
+  cards:
+    no_card: 您尚未绑定储值卡
+    recharge: 充值
+
 
 # --- active admin
   active_admin:
@@ -112,10 +128,11 @@ zh-CN:
           ship: 开始递送
           receive: 已送达
       payment:
-        method: TODO
+        method: 支付方式
+        order: 所属订单
         states:
           initialized: 尚未支付
-          method_selected: 支付进行中
+          paying: 支付进行中
           cancled: 支付已取消
           error: 支付遇到问题
           success: 支付成功

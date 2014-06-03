@@ -6,6 +6,16 @@
   .choose-pay-method
     .page-header
       %h5= t 'orders.pay.select_pay_method'
-    %pre.well
-      = link_to create_payment_path(order_id: @order, method: 'paypal') do
-        = image_tag 'https://www.paypalobjects.com/webstatic/en_US/btn/btn_checkout_pp_142x27.png'
+    .row
+      .col-md-3.by-paypal
+        = link_to create_payment_path(order_id: @order, method: 'paypal'), class: 'btn btn-primary btn-block' do
+          %i.fa.fa-fw.fa-pied-piper
+          = t 'orders.pay.by_paypal'
+      .col-md-3.by-card
+        = link_to create_payment_path(order_id: @order, method: 'card'), class: 'btn btn-primary btn-block' do
+          %i.fa.fa-fw.fa-credit-card
+          = t 'orders.pay.by_card'
+        %hr
+        %p
+          = t 'orders.pay.current_card_balance'
+          = to_sg_dollar current_user.cards.first.balance

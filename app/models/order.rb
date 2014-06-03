@@ -5,19 +5,12 @@ class Order < ActiveRecord::Base
   has_one :transport
   accepts_nested_attributes_for :transport, allow_destroy: true
 
-  has_many :payments
-  accepts_nested_attributes_for :payments, allow_destroy: true
+  has_one :payment
+  accepts_nested_attributes_for :payment, allow_destroy: true
 
   # validations
   validates :user, :transport, presence: true
   validates_with OrderValidator
-
-  # state machine
-  include AASM
-
-  aasm do
-    state :initialized, :initial => true
-  end
 
   # cart, nested hstore
   serialize :cart, ActiveRecord::Coders::NestedHstore
@@ -32,6 +25,10 @@ class Order < ActiveRecord::Base
       end
     end
     r
+  end
+
+  def total_price
+    cart[:total_price].to_i
   end
 
 end

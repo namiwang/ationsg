@@ -93,6 +93,9 @@ Ationsg::Application.routes.draw do
   # resources :payments, only: [:create]
   get 'payments/new/order/:order_id/method/:method' => 'payments#create', as: :create_payment
 
+  # cards
+  get 'cards/:card_id/recharge' => 'cards#recharge', as: :recharge_card
+
   # my
   get 'my' => 'my#info'
   get 'my/info' => 'my#info', as: :my_info

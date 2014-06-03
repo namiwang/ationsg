@@ -14,3 +14,6 @@
           = Card.human_attribute_name 'balance'
         .col-sm-10
           %p.form-control-static= to_sg_dollar card.balance
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          = link_to (t 'cards.recharge'), recharge_card_path(card), class: 'btn btn-primary'

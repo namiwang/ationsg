@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   end
 
   # cards and balance
-  def balance
+  def card_balance
     cards.empty? ? 0 : cards.first.balance
   end
 

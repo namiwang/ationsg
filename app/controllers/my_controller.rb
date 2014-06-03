@@ -22,7 +22,7 @@ class MyController < ApplicationController
   end
 
   def orders
-    @orders = current_user.orders    
+    @orders = current_user.orders.order(updated_at: :desc)
   end
 
   def liked

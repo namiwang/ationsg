@@ -11,7 +11,7 @@
   .panel-collapse.collapse{id: "order-card-#{order_token}", class: ('in' if collapse_in)}
     .panel-body
       .row
-        .col-md-5
+        .col-md-6
           %dl.dl-horizontal
             %dt= t 'orders.card.recipient_info'
             - if order.transport
@@ -28,15 +28,18 @@
             %dt= t 'orders.card.payment_state'
             %dd
               / TODO currently only handle situations where one order got only one payment
-              - payment = order.payments.last
+              - payment = order.payment
               = locale_state 'payment', payment.aasm_state
             - if payment.may_pay? and action_name != 'pay'
               %dd= link_to (t 'orders.new.pay'), (pay_order_path order), class: 'btn btn-default btn-sm'
+            - if payment.aasm_state != 'initialized'
+              %dt= Payment.human_attribute_name 'method'
+              %dd= t "payments.method.#{payment.method}"
 
             %dt= t 'orders.card.transport_state'
             %dd= locale_state 'transport', order.transport.aasm_state #TODO
 
-        .col-md-7
+        .col-md-6
           %table.table.table-hover
             %tbody
               - order.cart[:items].each do |i|

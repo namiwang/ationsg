@@ -4,12 +4,13 @@ class PaymentsController < ApplicationController
   before_action :chk_order_ownership, only: [:create]
 
   def create
-
     # TODO check payment self
     # TODO check payment state
     # TODO check order state
     # TODO check if may create new payment
-    # redirect_to root_path if not @order.may_create_new_payment?
+    @order.build_payment(order: @order) if @order.payment.nil?
+    new_payment = @order.payment
+    return redirect_to root_path unless new_payment.may_pay?
 
     case params[:method]
     when 'paypal'
@@ -33,21 +34,30 @@ class PaymentsController < ApplicationController
         paypal_params.merge! item_params_to_merge
       end
 
-      # new_payment = @order.payments.build({method: 'paypal', detail: paypal_params.to_json})
-      new_payment = @order.payments.last
       new_payment.update({method: 'paypal', detail: paypal_params.to_json})
-      if new_payment.valid?
-        new_payment.pay # state machine
-        new_payment.save!
+      return redirect_to root_path unless new_payment.valid?
+      new_payment.pay! # state machine
 
-        paypal_url = ENV['PAYPAL_URL'] + paypal_params.to_query
-        redirect_to paypal_url
-      else
-        redirect_to root_path
+      paypal_url = ENV['PAYPAL_URL'] + paypal_params.to_query
+      return redirect_to paypal_url
+    when 'card'
+      new_payment.update({method: 'card'})
+
+      return redirect_to root_path unless new_payment.valid?
+
+      # chk if enough card balance
+      if not current_user.card_balance >= @order.total_price
+        (flash[:alert] ||= []) << (I18n.t 'payments.not_sufficient_funds')
+        return redirect_to pay_order_path(@order)
       end
+
+      return redirect_to root_path unless current_user.cards.first.pay @order.total_price
+      new_payment.receive! # state machine
+      (flash[:notice] ||= []) << (I18n.t 'payments.success')
+      return redirect_to my_orders_path
     else
       # invalid payment method
-      redirect_to root_path
+      return redirect_to root_path
     end
   end
 
