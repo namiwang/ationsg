@@ -34,6 +34,11 @@ class MyController < ApplicationController
     @comments = Product.find_comments_by_user current_user
   end
 
+  def cards
+    @card = current_user.cards.first
+    @recharge_payments = RechargePayment.where(card: @card, user: current_user) unless @card.nil?
+  end
+
   private
 
   def user_params

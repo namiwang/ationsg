@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603094128) do
+ActiveRecord::Schema.define(version: 20140604040635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,19 @@ ActiveRecord::Schema.define(version: 20140603094128) do
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
+
+  create_table "recharge_payments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "card_id"
+    t.string   "pay_method"
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "aasm_state"
+  end
+
+  add_index "recharge_payments", ["card_id"], name: "index_recharge_payments_on_card_id", using: :btree
+  add_index "recharge_payments", ["user_id"], name: "index_recharge_payments_on_user_id", using: :btree
 
   create_table "transports", force: true do |t|
     t.string   "recipient_name"

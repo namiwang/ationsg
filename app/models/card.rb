@@ -10,4 +10,9 @@ class Card < ActiveRecord::Base
     self.balance -= amount
     self.save
   end
+
+  def recharge(amount)
+    self.balance += amount
+    self.save!
+  end
 end

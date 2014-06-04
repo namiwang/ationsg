@@ -1,6 +1,32 @@
 .my-cards
-  - if current_user.cards.empty?
+  - if not @card
     .nothing-to-show
       = t 'cards.no-card'
   - else
-    = render partial: 'cards/show', locals: {card: current_user.cards.first}
+    .cards
+      .page-header
+        %h5= t 'cards.info'
+      = render partial: 'cards/show', locals: {card: @card}
+    - unless @recharge_payments.empty?
+      .recharge-payments
+        .page-header
+          %h5= t 'recharge_payments.history_log'
+        %table.table.table-hover
+          / %thead
+          /   %tr
+          /     %th Time
+          /     %th Amount
+          /     %th pay_method
+          /     %th State
+          /     %th Operation
+          %tbody
+            - @recharge_payments.each do |r|
+              %tr
+                %td= t 'common.time.ago', time: (time_ago_in_words r.created_at)
+                %td= to_sg_dollar r.amount
+                %td= t "payments.method.#{r.pay_method}"
+                %td= locale_state 'recharge_payment', r.aasm_state
+                / %td
+                /   TODO
+                /   - if r.may_cancel?
+                /     = link_to (locale_transition 'recharge_payment', 'cancel')

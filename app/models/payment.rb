@@ -4,7 +4,7 @@ class Payment < ActiveRecord::Base
 
   # validations
   validates_presence_of :order
-  # validates_inclusion_of :method, :in => %w( paypal ), message: "not valid payment method"
+  validates_inclusion_of :method, :in => %w( paypal card ), message: "not valid payment method"
   # TODO message I18N
 
   # state machine

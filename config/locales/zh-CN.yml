@@ -84,7 +84,10 @@ zh-CN:
   cards:
     no_card: 您尚未绑定储值卡
     recharge: 充值
+    info: 卡片信息
 
+  recharge_payments:
+    history_log: 充值记录
 
 # --- active admin
   active_admin:
@@ -98,6 +101,8 @@ zh-CN:
       transport: 递送
       page: 页面
       card: 储值卡
+      recharge_payment: 充值
+
     attributes:
       user:
         email: 邮箱
@@ -107,10 +112,7 @@ zh-CN:
         phone: 电话
       order:
         customer_message: 顾客留言
-        # state machine
-        state: 状态
-        states:
-          initialized: 初始状态
+
       transport:
         order: 所属订单
         recipient_name: 收件人姓名
@@ -127,6 +129,7 @@ zh-CN:
           confirm: 审核通过
           ship: 开始递送
           receive: 已送达
+
       payment:
         pay_method: 支付方式
         order: 所属订单
@@ -139,10 +142,32 @@ zh-CN:
           error: 支付遇到问题
           success: 支付成功
         transitions:
+          pay: 支付
           receive: 收讫
+
       comment:
         comment: 评论内容
+
       card:
         id: 编号
         balance: 余额
 
+      recharge_payment:
+        card: 储值卡
+        amount: 金额
+        pay_method: 支付方式
+        # state machine
+        state: 状态
+        states:
+          initialized: 尚未支付
+          paying: 支付进行中
+          cancled: 支付已取消
+          error: 支付遇到问题
+          success: 支付成功
+        transitions:
+          pay: 支付
+          receive: 收讫
+          cancel: 取消
+
+# helpers
+  helpers:

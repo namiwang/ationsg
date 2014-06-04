@@ -1,0 +1,23 @@
+.container.new-recharge-payment
+  = form_for @recharge_payment, url: {action: "create"}, html: {class: 'form-horizontal'} do |f|
+    = f.hidden_field :card_id, value: @card.id
+    .form-group
+      = f.label :card, class: 'col-sm-2 control-label'
+      .col-sm-10
+        %p.form-control-static
+          = @card.id
+    .form-group
+      = f.label :amount, class: 'col-sm-2 control-label'
+      .col-sm-3.row.input-amount
+        .prefix
+          %span S$
+        .col-sm-10= f.number_field :amount
+        .col-sm-1.suffix
+          %span .00
+    .form-group
+      = f.label :pay_method, class: 'col-sm-2 control-label'
+      .col-sm-3
+        = f.select :pay_method, [['Paypal', 'paypal']], {}, class: 'form-control'
+    .form-group
+      .col-sm-offset-2.col-sm-3
+        = f.submit t('common.submit'), class: 'btn btn-primary'

@@ -41,20 +41,18 @@ ActiveAdmin.register Order do
     column :id
     column :user
     column :customer_message do |order|
-      order.customer_message.truncate unless order.customer_message.nil?
+      ( order.customer_message[0..100] + '...' ) unless order.customer_message.nil?
     end
     column :total_price do |order|
       to_sg_dollar order.total_price
     end
-    column :payment do |order|
-      link_to "#{Payment.model_name.human} ##{order.payment.id}", admin_payment_path(order.payment)
-    end
+    column :payment
     column :payment_state do |order|
-      I18n.t "activerecord.attributes.payment.states.#{order.payment.aasm_state}"
+      locale_state 'payment', order.payment.aasm_state
     end
     column :transport
     column :transport_state do |order|
-      I18n.t "activerecord.attributes.transport.states.#{order.transport.aasm_state}"
+      locale_state 'transport', order.transport.aasm_state
     end
 
     actions defaults: false do |order|

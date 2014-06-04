@@ -27,7 +27,7 @@ class PaymentsController < ApplicationController
         case item[:type]
         when 'product'
           item_params_to_merge = {
-            "amount_#{index + 1}" => view_context.to_real_amount(item[:price]),# TODO convert to real number
+            "amount_#{index + 1}" => view_context.to_real_amount(item[:price]),
             "item_name_#{index + 1}" => item[:product].name,
           }
         end
