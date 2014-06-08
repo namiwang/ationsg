@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   include CartModule
 
   before_action :cart_init
-
+  before_action :set_locale
+ 
   def cart_init
     @cart = Cart.new.initialize_from_cookie cookies[:cart_items]
     cart_save_to_cookie
@@ -20,4 +21,13 @@ class ApplicationController < ActionController::Base
     @cart.clear
     cart_save_to_cookie
   end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options(options={})
+    { locale: I18n.locale }
+  end
+
 end
