@@ -27,8 +27,20 @@
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
-      <li><%= link_to t('devise.navigation.sign_in'), user_session_path %></li>
-      <li><%= link_to t('devise.navigation.sign_up'), new_user_registration_path %></li>
+      <%= form_for :user, url: session_path(:user) do |f| %>
+        <%= f.text_field :email, placeholder: 'Email' %>
+        <%= f.text_field :password, placeholder: 'Password' %>
+        <div class="btn-group-vertical">
+          <%= f.submit t('devise.navigation.sign_in'), class: 'btn btn-sm btn-primary btn-block' %>
+          <a class="btn btn-social btn-google-plus" href="<%= user_omniauth_authorize_path :gplus %>">
+           <i class="fa fa-google-plus"></i> <%= t 'devise.navigation.sign_in_with_provider', provider: t('devise.authentications.providers.gplus') %>
+          </a>
+          <a class="btn btn-social btn-facebook" href="<%= user_omniauth_authorize_path :facebook %>">
+           <i class="fa fa-facebook"></i> <%= t 'devise.navigation.sign_in_with_provider', provider: t('devise.authentications.providers.facebook') %>
+          </a>
+        </div>
+      <% end %>
+      <li><%# link_to t('devise.navigation.sign_up'), new_user_registration_path %></li>
     </ul>
   </li>
 <% end %>

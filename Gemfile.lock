@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: b6fb7175c0a3a0e485ceb2007ae8da22aacf6c2d
+  revision: 6e226154625485fea9a9ad915f082a8a0dc45400
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: b2d9a1a9108c2e01c454fe8e73e7811ba87748c1
+  revision: 73fd316733325c8de2f16e5f3655b4938dfb156e
   specs:
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
@@ -71,8 +71,8 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bitters (0.9.5)
-      bourbon (>= 3.1)
+    bitters (0.10.0)
+      bourbon (>= 3.2)
       sass (>= 3.2)
       thor
     bootstrap-sass (3.1.1.1)
@@ -102,7 +102,7 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (0.10.3)
     erubis (2.7.0)
-    execjs (2.1.0)
+    execjs (2.2.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     figaro (0.7.0)
@@ -120,9 +120,9 @@ GEM
     hashie (2.1.1)
     hike (1.2.3)
     i18n (0.6.9)
-    inherited_resources (1.4.1)
+    inherited_resources (1.5.0)
       has_scope (~> 0.6.0.rc)
-      responders (~> 1.0.0.rc)
+      responders (~> 1.0)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -180,7 +180,7 @@ GEM
     pg-hstore (1.2.0)
     polyamorous (1.0.0)
       activerecord (>= 3.0)
-    polyglot (0.3.4)
+    polyglot (0.3.5)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -216,7 +216,7 @@ GEM
       polyamorous (~> 1.0.0)
     rdoc (4.1.1)
       json (~> 1.4)
-    responders (1.0.0)
+    responders (1.1.0)
       railties (>= 3.2, < 5)
     sass (3.2.19)
     sass-rails (4.0.2)
@@ -246,7 +246,7 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.2)
       coffee-rails
-    tzinfo (1.2.0)
+    tzinfo (1.2.1)
       thread_safe (~> 0.1)
     uglifier (2.5.0)
       execjs (>= 0.3.0)

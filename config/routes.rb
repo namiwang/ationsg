@@ -1,18 +1,12 @@
 Ationsg::Application.routes.draw do
+
   scope "(:locale)", locale: /en|zh-CN/ do
     # admin
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
 
     # devise
-    devise_for :users, skip: [:registrations, :omniauth_callbacks]
     devise_scope :user do
-      match "/users/auth/:action/callback",
-        constraints: { action: /gplus|facebook/ },
-        to: 'authentications',
-        as: :omniauth_callback,
-        via: [:get, :post]
-
       # oauth
       get 'users/oauth_bind' => 'oauth_bind#new_from_oauth', as: :oauth_bind_new
       post 'users/oauth_bind' => 'oauth_bind#bind_with_oauth'
@@ -64,6 +58,8 @@ Ationsg::Application.routes.draw do
     resources :pages, only: [:show]
 
   end
+
+  devise_for :users, controllers: { omniauth_callbacks: 'authentications' }, skip: [:registrations]
 
   get "/:locale" => 'pages#show', id: 'home'
   root 'pages#show', id: 'home'  

@@ -16,6 +16,8 @@ zh-CN:
         gplus_with_icon: <a class="btn btn-xs btn-social btn-google-plus"><i class="fa fa-google-plus"></i> Google+</a>
         facebook: Facebook
         facebook_with_icon: <a class="btn btn-xs btn-social btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+      user:
+        failure: 验证失败
 
     navigation:
       sign_in: '登录'
