@@ -4,13 +4,13 @@
   <% end %>
 
   <%= f.inputs "Image" do %>
-    <% f.object.build_image %>
-    <%= f.semantic_fields_for :image do |i| %>
-      <% if i.object.new_record? %>
+    <% if f.object.images.empty? %>
+      <% f.object.images.build %>
+      <%= f.semantic_fields_for :images do |i| %>
         <%= i.input :attachment , as: :file, label: 'attach a new image' %>
-      <% else %>
-        <%= image_tag i.object.attachment.url %>
       <% end %>
+    <% else %>
+      <%= image_tag f.object.images.first.attachment.url %>    
     <% end %>
   <% end %>
 

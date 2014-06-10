@@ -7,7 +7,7 @@
     .card-header
       = product.name
     .card-content
-      = simple_format product.description.truncate(140)
+      = simple_format product.description.truncate(140) unless product.description.nil?
     .card-stats
       %ul.list-unstyled.list-inline
         %li.price

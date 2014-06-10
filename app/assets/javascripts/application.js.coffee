@@ -13,7 +13,7 @@ $ ->
   $('.need-popover-init').popover()
 
   # carousel
-  $(".slide .owl-carousel").owlCarousel({
+  $(".banners .owl-carousel").owlCarousel({
       items: 1,
       loop: true,
       autoplay: true

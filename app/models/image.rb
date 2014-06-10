@@ -3,7 +3,7 @@ class Image < ActiveRecord::Base
   belongs_to :imageable, polymorphic: true
 
   # paperclip
-  has_attached_file :attachment, styles: { large: '800x800', thumb: '100x100>' }, default_url: '/images/missing.png'
+  has_attached_file :attachment, default_url: '/images/missing.png'
   delegate :path, :url, :content_type, :to => :attachment
   
   # validations

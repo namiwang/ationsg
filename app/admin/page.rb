@@ -16,7 +16,6 @@ ActiveAdmin.register Page do
   
   index do
     column :name
-    column :content
     actions
   end
 

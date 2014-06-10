@@ -104,6 +104,7 @@ zh-CN:
       recharge_payment: 充值
       product: 产品
       category: 分类
+      banner: 横幅
 
     attributes:
       user:
