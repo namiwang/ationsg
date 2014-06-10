@@ -102,6 +102,8 @@ zh-CN:
       page: 页面
       card: 储值卡
       recharge_payment: 充值
+      product: 产品
+      category: 分类
 
     attributes:
       user:

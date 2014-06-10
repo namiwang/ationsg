@@ -1,0 +1,18 @@
+<%= semantic_form_for [:admin, @banner], :html => { :class => "filter_form", :multipart => true } do |f| %>
+  <%= f.inputs "Info" do %>
+    <%= f.input :path %>
+  <% end %>
+
+  <%= f.inputs "Image" do %>
+    <% f.object.build_image %>
+    <%= f.semantic_fields_for :image do |i| %>
+      <% if i.object.new_record? %>
+        <%= i.input :attachment , as: :file, label: 'attach a new image' %>
+      <% else %>
+        <%= image_tag i.object.attachment.url %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <%= f.actions %>
+<% end %>

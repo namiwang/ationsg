@@ -1,8 +1,9 @@
 .container.pages.home
-  .row
-    .col-md-12
-      .slide
-        / = render partial: 'shared/home_slide'
+  - if Banner.exists?
+    .row
+      .col-md-12
+        .banners
+          = render partial: 'pages/home_banners'
 
   .row
     - 3.times do

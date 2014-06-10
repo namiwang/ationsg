@@ -1,10 +1,6 @@
 Ationsg::Application.routes.draw do
 
   scope "(:locale)", locale: /en|zh-CN/ do
-    # admin
-    devise_for :admin_users, ActiveAdmin::Devise.config
-    ActiveAdmin.routes(self)
-
     # devise
     devise_scope :user do
       # oauth
@@ -59,6 +55,11 @@ Ationsg::Application.routes.draw do
 
   end
 
+  # admin
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  # omniauth doesnot support dynamic routing with locale
   devise_for :users, controllers: { omniauth_callbacks: 'authentications' }, skip: [:registrations]
 
   get "/:locale" => 'pages#show', id: 'home'
