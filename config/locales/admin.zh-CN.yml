@@ -2,3 +2,5 @@ zh-CN:
   admin:
     products:
       price_unit: '以分为单位，如 1.50 则输入 150'
+    banners:
+      path_hint: 如 /products/1
