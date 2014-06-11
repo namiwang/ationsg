@@ -1,6 +1,6 @@
 <%= semantic_form_for [:admin, @banner], :html => { :class => "filter_form", :multipart => true } do |f| %>
   <%= f.inputs "Info" do %>
-    <%= f.input :path, hint: t('admin.banners.path_hint') %>
+    <%= f.input :product %>
   <% end %>
 
   <%= f.inputs "Image" do %>

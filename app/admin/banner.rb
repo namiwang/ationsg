@@ -1,14 +1,20 @@
 ActiveAdmin.register Banner do
 
-  permit_params :path,
+  permit_params :product_id,
     images_attributes: [:id, :attachment]
 
   form partial: 'form'
 
+  index do
+    column :id
+    column :product
+    actions
+  end
+
   show do |banner|
     panel 'Info' do
       attributes_table_for banner do
-        row :path
+        row :product
       end
     end
 
