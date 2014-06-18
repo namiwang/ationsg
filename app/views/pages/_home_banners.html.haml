@@ -1,4 +1,5 @@
 .owl-carousel
   - Banner.all.each do |b|
-    .item
-      %a{style: "background-image: url(#{background_image_url b.image.url})", href: (banner_path b)}
+    - unless b.image.nil?
+      .item
+        %a{style: "background-image: url(#{background_image_url b.image.url})", href: (banner_path b)}
