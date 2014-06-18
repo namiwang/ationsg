@@ -107,6 +107,8 @@ zh-CN:
       banner: 横幅
 
     attributes:
+      product:
+        ribbon: 绶带 
       user:
         email: 邮箱
         password: 密码

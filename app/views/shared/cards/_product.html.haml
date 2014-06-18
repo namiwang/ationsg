@@ -1,7 +1,8 @@
 %a.product-card{href: main_app.product_path(product)}
   .product-card
-    .ribbon-wrapper
-      .ribbon NEW
+    - unless product.ribbon.empty?
+      .ribbon-wrapper
+        .ribbon= product.ribbon
     .card-image
       = image_tag product.cover
     .card-header

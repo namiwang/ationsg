@@ -14,7 +14,7 @@ ActiveAdmin.register Product do
   #  permitted
   # end
 
-  permit_params :name, :description, :price,
+  permit_params :name, :description, :price, :ribbon,
     :category_id, 
     images_attributes: [:_destroy, :id, :attachment]
 
@@ -27,6 +27,7 @@ ActiveAdmin.register Product do
       attributes_table_for product do
         row :name
         row :price
+        row :ribbon
         row :description do
           pre do
             raw product.description
@@ -57,6 +58,7 @@ ActiveAdmin.register Product do
     column :name
     column :price
     column :category
+    column :ribbon
     actions
   end
 
